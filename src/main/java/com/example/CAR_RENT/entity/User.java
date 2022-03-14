@@ -2,11 +2,10 @@ package com.example.CAR_RENT.entity;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 
 import javax.persistence.*;
 import java.util.Collection;
-import java.util.Collections;
+import java.util.Set;
 
 @Entity
 @Table(name = "main_user")
@@ -15,14 +14,25 @@ public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
     private String firstName;
     private String lastName;
-    private String userName;
+    private String username;
     private String password;
     private boolean active;
+    private Integer currentbalance;
 
     @Transient
     private String password2;
+
+    @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
+    @CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"),
+            foreignKey = @ForeignKey(
+                    name = "user_fk")
+    )
+    @Enumerated(EnumType.STRING)
+    private Set<Role> roles;
+
 
     public User() {
     }
@@ -43,12 +53,12 @@ public class User implements UserDetails {
         this.lastName = lastName;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String userName) {
+        this.username = userName;
     }
 
     public Long getId() {
@@ -59,9 +69,28 @@ public class User implements UserDetails {
         this.id = id;
     }
 
+    public String getPassword() {
+        return password;
+    }
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getPassword2() {
+        return password2;
+    }
+
+    public void setPassword2(String password2) {
+        this.password2 = password2;
+    }
+
+    public Integer getBalance() {
+        return currentbalance;
+    }
+
+    public void setBalance(Integer balance) {
+        this.currentbalance = balance;
     }
 
     public boolean isActive() {
@@ -72,19 +101,17 @@ public class User implements UserDetails {
         this.active = active;
     }
 
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
-    }
-
-    @Override
-    public String getPassword() {
-        return password;
-    }
-
-    @Override
-    public String getUsername() {
-        return userName;
+        return getRoles();
     }
 
     @Override
