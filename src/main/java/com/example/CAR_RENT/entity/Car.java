@@ -15,6 +15,7 @@ public class Car {
     private String category;
     private String description;
     private boolean inRent;
+    private Integer price;
 
     public Long getId() {
         return id;
@@ -54,5 +55,13 @@ public class Car {
 
     public void setInRent(boolean inRent) {
         this.inRent = inRent;
+    }
+
+    public Integer getPriceForHour() {
+        return price;
+    }
+
+    public void setPriceForHour(Integer priceForHour) {
+        this.price = priceForHour;
     }
 }

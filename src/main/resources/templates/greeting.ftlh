@@ -1,13 +1,17 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-<h1>Hello everybody</h1>
-</body>
-</html>
+<#import "parts/main.ftlh" as m>
+<@m.head_part>
+    <#list american_muscle as muscle>
+        <div>
+            <div>${muscle.carName}</div>
+            <div>${muscle.description}</div>
+            <div>${muscle.priceForHour}</div>
+            <#if !muscle.inRent>
+                <form action="/rent/${muscle.id}" method="post">
+                    <input type="submit" value="Арендовать">
+                </form>
+            </#if>
+        </div>
+    <#else>
+        <div>No american cars</div>
+    </#list>
+</@m.head_part>
