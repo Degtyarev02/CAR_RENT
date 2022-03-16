@@ -1,13 +1,13 @@
 <#import "parts/main.ftlh" as m>
 <@m.head_part>
-    <div class="container">
-        <h2 class="sign-in-label">Please sign in</h2>
+    <div class="init-container">
         <div class="init-form">
+            <h2 class="sign-in-label">Пожалуйста войдите</h2>
             <form action="/login" method="post" class="login-form">
                 <input type="text" name="username" placeholder="Username"/>
                 <input type="password" name="password" placeholder="Password"/>
-                <input type="submit" value="Sign In" class="submit"/>
-                <a href="/registration" class="registration">Sign up</a>
+                <input type="submit" value="Войти" class="submit"/>
+                <a href="/registration" class="registration">Зарегистрироваться</a>
             </form>
         </div>
     </div>

@@ -1,0 +1,296 @@
+* {
+  font-family: 'Rubik', sans-serif;
+  margin:      0;
+  padding:     0;
+  box-sizing:  border-box;
+  transition:  .3s all;
+}
+
+body {
+  scroll-behavior: smooth;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity:           0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform:         translate3d(0, 100%, 0);
+  }
+  100% {
+    opacity:           1;
+    -webkit-transform: none;
+    transform:         none;
+  }
+}
+
+a {
+  color:           black;
+  text-decoration: none;
+
+  &:visited {
+    color: #3c3c3c;
+  }
+}
+
+//Страница логина и регистрации
+
+.init-container {
+  width:           100%;
+  height:          100vh;
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  background:      url("/static/img/background.png") center no-repeat;
+  background-size: cover;
+
+  .init-form {
+    letter-spacing: 3px;
+    width:          26%;
+    display:        flex;
+    flex-direction: column;
+    align-items:    center;
+    background:     white;
+    padding:        50px 0 50px 0;
+    border-radius:  5px;
+
+    h2 {
+      color:       #3c3c3c;
+      font-weight: 300;
+    }
+  }
+
+  .init-form {
+    -webkit-animation-name:      fadeInUp;
+    animation-name:              fadeInUp;
+    -webkit-animation-duration:  1.5s;
+    animation-duration:          1.5s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode:         both;
+  }
+
+
+  .login-form {
+    display:        flex;
+    flex-direction: column;
+    align-items:    center;
+    margin-top:     15px;
+
+    input {
+      width:         290px;
+      height:        50px;
+      font-size:     15px;
+      border:        solid 2px #ffa300;
+      border-radius: 5px;
+      padding:       10px;
+      color:         #6d6d6d;
+      margin-bottom: 5px;
+
+      &:focus {
+        outline: none;
+      }
+
+      &::placeholder {
+        color: #6d6d6d;
+      }
+    }
+
+    .submit {
+      background:    #ffa300;
+      color:         white;
+      cursor:        pointer;
+      margin-bottom: 10px;
+
+      &:focus {
+        border:     none;
+        outline:    none;
+        background: #ffa300;
+      }
+
+    }
+  }
+}
+
+//Основаная страница
+.greeting-container {
+  background:      url("/static/img/tire1.jpg") center no-repeat;
+  background-size: cover;
+  width:           100%;
+  height:          100vh;
+  display:         flex;
+  flex-direction:  column;
+  align-items:     center;
+  justify-content: space-around;
+  box-shadow:      0 5px 41px -41px rgba(34, 60, 80, 0.6);
+
+  .greeting-label {
+    width:                       50%;
+    height:                      fit-content;
+    margin-top:                  10%;
+    font-size:                   50px;
+    color:                       #3c3c3c;
+    text-align:                  center;
+    -webkit-animation-name:      fadeInUp;
+    animation-name:              fadeInUp;
+    -webkit-animation-duration:  2s;
+    animation-duration:          2s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode:         both;
+  }
+
+  .selector {
+    background:    white;
+    border-radius: 5px;
+    padding:       7px;
+
+    a, span {
+      -webkit-animation-name:      fadeInUp;
+      animation-name:              fadeInUp;
+      -webkit-animation-duration:  2s;
+      animation-duration:          2s;
+      -webkit-animation-fill-mode: both;
+      animation-fill-mode:         both;
+    }
+  }
+}
+
+//Карточка автомобиля
+
+.cards-container {
+  width:           100%;
+  height:          100vh;
+  display:         flex;
+  flex-direction:  column;
+  align-items:     center;
+  justify-content: center;
+  margin-bottom:   200px;
+
+  .car-container {
+    width:          80%;
+    display:        flex;
+    flex-direction: column;
+    align-items:    center;
+
+    .cards {
+      display:         flex;
+      justify-content: center;
+      margin-top:      100px;
+    }
+
+    .car-label {
+      margin:         35px;
+      font-size:      50px;
+      letter-spacing: 4px;
+      border-bottom:  solid 2px #ffa300;
+      color:          #3c3c3c;
+    }
+
+    .sportcar-label {
+      border-bottom: solid 2px #00ae0d;
+    }
+
+    .supercar-label {
+      border-bottom: solid 2px #ae0000;
+    }
+  }
+}
+
+
+.child-card {
+  display:        flex;
+  flex-direction: column;
+  align-items:    center;
+  font-size:      25px;
+  color:          #3c3c3c;
+  letter-spacing: 4px;
+  margin-top:     45px;
+  padding:        7px;
+
+  .price {
+    font-size:      15px;
+    letter-spacing: 2px;
+    margin-top:     10px;
+  }
+
+  .description {
+    font-size:      15px;
+    margin-top:     5px;
+    margin-bottom:  20px;
+    letter-spacing: 2px;
+  }
+
+  button {
+    width:          180px;
+    height:         50px;
+    border:         none;
+    background:     #3c3c3c;
+    border-radius:  5px;
+    color:          #ffa300;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    cursor:         pointer;
+    margin-top:     30px;
+
+    &:hover {
+      background: darken(#3c3c3c, 10%);
+    }
+  }
+
+  .sportcar-button {
+    color: #00ae0d;
+  }
+
+  .supercar-button {
+    color: #ae0000;
+  }
+
+  .car-name {
+    text-transform: uppercase;
+  }
+}
+
+.card {
+  width:        380px;
+  height:       425px;
+  perspective:  500px;
+  margin-right: 25px;
+  margin-left:  25px;
+}
+
+.content {
+  position:        absolute;
+  width:           100%;
+  height:          100%;
+  transition:      transform 1s;
+  transform-style: preserve-3d;
+}
+
+
+.front,
+.back {
+  position:            absolute;
+  height:              100%;
+  width:               100%;
+  background:          linear-gradient(53deg, #ffa300 50%, #ffffff 50%);
+  border:              #ffa300 solid 3px;
+  text-align:          center;
+  font-size:           15px;
+  border-radius:       5px;
+  backface-visibility: hidden;
+  overflow:            hidden;
+}
+
+.supercar-front,
+.supercar-back {
+  background: linear-gradient(53deg, #ae0000 50%, #ffffff 50%);
+  border:     #ae0000 solid 3px;
+}
+
+.sportcar-front,
+.sportcar-back {
+  background: linear-gradient(53deg, #00ae0d 50%, #ffffff 50%);
+  border:     #00ae0d solid 3px;
+}
+
+.back {
+  transform: rotateY(180deg);
+}

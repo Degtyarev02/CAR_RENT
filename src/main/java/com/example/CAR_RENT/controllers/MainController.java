@@ -15,6 +15,8 @@ public class MainController {
     @GetMapping("/")
     public String greeting(Model model) {
         model.addAttribute("american_muscle", carRepo.findAllByCategory("american_muscle"));
+        model.addAttribute("sportcar", carRepo.findAllByCategory("sportcar"));
+        model.addAttribute("supercar", carRepo.findAllByCategory("supercar"));
         return "greeting";
     }
 

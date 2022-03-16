@@ -16,6 +16,7 @@ public class Car {
     private String description;
     private boolean inRent;
     private Integer price;
+    private String iconName;
 
     public Long getId() {
         return id;
@@ -63,5 +64,21 @@ public class Car {
 
     public void setPriceForHour(Integer priceForHour) {
         this.price = priceForHour;
+    }
+
+    public Integer getPrice() {
+        return price;
+    }
+
+    public void setPrice(Integer price) {
+        this.price = price;
+    }
+
+    public String getIconName() {
+        return iconName;
+    }
+
+    public void setIconName(String iconName) {
+        this.iconName = iconName;
     }
 }
