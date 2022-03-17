@@ -27,6 +27,52 @@ a {
 a:visited {
   color: #3c3c3c;
 }
+.navbar {
+  background: rgba(255, 255, 255, 0);
+  box-shadow: 2px 12px 30px -17px rgba(34, 60, 80, 0.2);
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.navbar .menu {
+  margin-left: 50px;
+  margin-right: auto;
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  list-style: none;
+}
+.navbar .menu li {
+  margin-left: 15px;
+  margin-right: 15px;
+  font-size: 20px;
+  transition: 0.3s linear;
+}
+.navbar .menu li a {
+  color: #3c3c3c;
+}
+.navbar .menu li a:visited {
+  color: #3c3c3c;
+}
+.navbar .menu li a:hover {
+  color: #ffa300;
+}
+.navbar .logout {
+  margin-right: 20px;
+}
+.navbar .logout button {
+  padding: 5px 15px;
+  border-radius: 25%;
+  color: #ffa300;
+  background: rgba(0, 0, 0, 0);
+  cursor: pointer;
+  border: 2px solid #ffa300;
+}
+.open-navbar {
+  display: none;
+}
 .init-container {
   width: 100%;
   height: 100vh;
@@ -163,6 +209,13 @@ a:visited {
 .cards-container .car-container .supercar-label {
   border-bottom: solid 2px #ae0000;
 }
+.cards-container .main-description {
+  text-align: center;
+  width: 50%;
+  font-size: 20px;
+  letter-spacing: 1px;
+  margin-top: 72px;
+}
 .child-card {
   display: flex;
   flex-direction: column;
@@ -184,9 +237,9 @@ a:visited {
   margin-bottom: 20px;
   letter-spacing: 2px;
 }
-.child-card button {
-  width: 180px;
-  height: 50px;
+.child-card .button {
+  font-size: 16px;
+  padding: 16px;
   border: none;
   background: #3c3c3c;
   border-radius: 5px;
@@ -196,7 +249,7 @@ a:visited {
   cursor: pointer;
   margin-top: 30px;
 }
-.child-card button:hover {
+.child-card .button:hover {
   background: #232323;
 }
 .child-card .sportcar-button {
@@ -247,5 +300,110 @@ a:visited {
 }
 .back {
   transform: rotateY(180deg);
+}
+.main-car-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main-car-block {
+  margin-top: 100px;
+  display: flex;
+  height: fit-content;
+  align-items: center;
+  width: 60%;
+  justify-content: space-between;
+}
+.main-car-block .car-pic {
+  box-shadow: 0px 0px 19px -6px rgba(34, 60, 80, 0.2);
+  padding: 20px;
+  border-radius: 5px;
+}
+.main-car-block .info-block {
+  border-radius: 5px;
+  margin-left: 30px;
+  box-shadow: 0px 0px 19px -6px rgba(34, 60, 80, 0.2);
+  height: 417px;
+  width: 350px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 20px;
+  letter-spacing: 3px;
+}
+.main-car-block .info-block .buttons-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.main-car-block .info-block .buttons-container button {
+  margin: 10px;
+  outline: none;
+  border: none;
+  height: 40px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 17px;
+  color: #3c3c3c;
+}
+.main-car-block .info-block .buttons-container button:hover {
+  background: #3c3c3c;
+  color: #ffa300;
+}
+.reviews-container {
+  display: flex;
+  justify-content: center;
+}
+.reviews {
+  overflow: hidden;
+}
+.swiper-slide {
+  background: #e8e8e8;
+  padding: 30px;
+  border-radius: 5px;
+}
+.rev_header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.rev_header .avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 20px;
+  border: 2px solid #ffa300;
+}
+.review-and-description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+.review-and-description .nav-tabs {
+  border-bottom: none;
+  width: 60% !important;
+  display: flex;
+  justify-content: space-around;
+  font-size: 20px;
+}
+.review-and-description .nav-tabs .nav-link,
+.review-and-description .nav-tabs .active {
+  color: #3c3c3c !important;
+  background-color: #fff !important;
+  border: none !important;
+}
+.review-and-description .nav-tabs .active {
+  color: #ffa300 !important;
+}
+.review-and-description .nav-tabs .nav-link:hover {
+  color: #ffa300 !important;
+}
+.review-and-description .tab-content {
+  width: 60%;
+  margin-top: 50px;
 }
 /*# sourceMappingURL=style.css.map */

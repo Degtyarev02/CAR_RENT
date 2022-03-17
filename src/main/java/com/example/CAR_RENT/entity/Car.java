@@ -1,9 +1,7 @@
 package com.example.CAR_RENT.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Car {
@@ -17,6 +15,10 @@ public class Car {
     private boolean inRent;
     private Integer price;
     private String iconName;
+
+    @OneToMany()
+    @JoinColumn(name = "car_id")
+    private List<Review> reviews;
 
     public Long getId() {
         return id;
@@ -80,5 +82,13 @@ public class Car {
 
     public void setIconName(String iconName) {
         this.iconName = iconName;
+    }
+
+    public List<Review> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(List<Review> reviews) {
+        this.reviews = reviews;
     }
 }

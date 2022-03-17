@@ -23,20 +23,23 @@ public class RentController {
     CarRepo carRepo;
 
     @PostMapping("/rent/{car}")
-    public String rentCar(@PathVariable Car car, @AuthenticationPrincipal User user){
+    public String rentCar(@PathVariable Car car, @AuthenticationPrincipal User user) {
+        //Ищем, существует ли активная аренда с текущим пользователем
         Application application = applicationRepo.findAllByClientAndActive(user, true);
-        if(application == null){
-            application = new Application();
-            application.setActive(true);
-            application.setClient(user);
-            application.setStartTime(LocalDateTime.now());
-            application.setEndTime(LocalDateTime.now().plusHours(1));
-            application.setTotalPrice(car.getPriceForHour());
-            application.setCar(car);
-            car.setInRent(true);
-            applicationRepo.save(application);
-            carRepo.save(car);
-
+        if (application == null) {
+            //Проверяем, доступна ли арендуемая машина
+            if (!car.isInRent()) {
+                application = new Application();
+                application.setActive(true);
+                application.setClient(user);
+                application.setStartTime(LocalDateTime.now());
+                application.setEndTime(LocalDateTime.now().plusHours(1));
+                application.setTotalPrice(car.getPriceForHour());
+                application.setCar(car);
+                car.setInRent(true);
+                applicationRepo.save(application);
+                carRepo.save(car);
+            }
         }
         return "redirect:/";
     }

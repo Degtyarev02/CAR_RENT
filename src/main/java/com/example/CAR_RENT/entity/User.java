@@ -4,6 +4,8 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 import java.util.Collection;
 import java.util.Set;
 
@@ -17,6 +19,9 @@ public class User implements UserDetails {
 
     private String firstName;
     private String lastName;
+
+    @NotEmpty
+    @Size(max = 10, message = "Your username is too long")
     private String username;
     private String password;
     private boolean active;

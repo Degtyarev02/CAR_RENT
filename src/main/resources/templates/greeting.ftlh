@@ -1,5 +1,9 @@
 <#import "parts/main.ftlh" as m>
+<#import "parts/header.ftlh" as h>
 <@m.head_part>
+
+    <@h.nav_bar></@h.nav_bar>
+
     <div class="greeting-container">
         <div class="greeting-label">
             <span>Сложнейший выбор сделает лишь сильнейший</span>
@@ -34,13 +38,18 @@
                             <span class="description">
                                 ${am.description}
                             </span>
-                                    <button>Посмотреть</button>
+                                    <a href="/car/${am.id}" class="button">Посмотреть</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </#list>
             </div>
+        </div>
+        <div class="main-description">
+            <span class="main-description">
+                Всё остальное, что появилось в 70-х, устарело, а классические масл-кары только похорошели. С каждым годом их таинственное обаяние лишь усиливается - как у хорошего вина. Заберитесь в эту винтажную машину, оцените самоуверенность и техничность, которая появляется только со временем, и вам больше никогда не захочется тратить время на свежую модель.
+            </span>
         </div>
     </div>
 
@@ -65,13 +74,19 @@
                             <span class="description">
                                 ${sc.description}
                             </span>
-                                    <button class="sportcar-button">Посмотреть</button>
+                                    <a href="/car/${sc.id}" class="sportcar-button button">Посмотреть</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </#list>
             </div>
+        </div>
+        <div class="main-description">
+            Современные спорткары быстры, удобны, нафаршированы страхующей электроникой по самую крышу и не пытаются вас
+            убить при любом удобном случае. Это классно и… скучно. По крайней мере, для особой прослойки петролхедов.
+            Они выбирают абсолютное вовлечение в процесс управления, чистый драйв и ослепительно яркие эмоции за
+            штурвалом полугоночных монстров для дорог общего пользования.
         </div>
     </div>
 
@@ -96,13 +111,19 @@
                             <span class="description">
                                 ${super.description}
                             </span>
-                                    <button class="supercar-button">Посмотреть</button>
+                                    <a href="/car/${super.id}" class="supercar-button button">Посмотреть</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </#list>
             </div>
+        </div>
+        <div class="main-description">
+            Супер дорогие, а также супер редкие и очень дорогие автомобили привлекают внимание всех без исключения
+            граждан, которым нравятся вообще автомобили. Сегодня мы предлагаем Вам познакомиться с "королями
+            автоспринта" и с невероятно дорогими монстрами скорости. Мы специально отобрали для вас самых быстрых редких
+            и самых дорогих суперкаров.
         </div>
     </div>
     <script>
