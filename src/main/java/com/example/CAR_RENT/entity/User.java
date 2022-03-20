@@ -4,7 +4,9 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Collection;
 import java.util.Set;
@@ -20,12 +22,19 @@ public class User implements UserDetails {
     private String firstName;
     private String lastName;
 
+    @Email(message = "Email should be valid")
+    @NotNull
+    @Column(unique = true)
+    private String email;
+
     @NotEmpty
     @Size(max = 10, message = "Your username is too long")
     private String username;
     private String password;
     private boolean active;
     private Integer currentbalance;
+
+    private String activationCode;
 
     @Transient
     private String password2;
@@ -114,6 +123,30 @@ public class User implements UserDetails {
         this.roles = roles;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Integer getCurrentbalance() {
+        return currentbalance;
+    }
+
+    public void setCurrentbalance(Integer currentbalance) {
+        this.currentbalance = currentbalance;
+    }
+
+    public String getActivationCode() {
+        return activationCode;
+    }
+
+    public void setActivationCode(String activationCode) {
+        this.activationCode = activationCode;
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return getRoles();
@@ -136,6 +169,6 @@ public class User implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return true;
+        return active;
     }
 }

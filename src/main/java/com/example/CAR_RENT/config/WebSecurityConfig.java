@@ -41,13 +41,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()//Отключаем поддержку csrf
                 .authorizeRequests() //Запрос на вход
-                .antMatchers("/registration", "/img/**", "/static/**").permitAll() //Какие страницы могут быть доступны без авторизации
+                .antMatchers("/registration", "/img/**", "/static/**", "/activate/**").permitAll() //Какие страницы могут быть доступны без авторизации
                 .anyRequest().authenticated()
                 .and()
                 .formLogin() //Форма логина
                 .loginPage("/login")//путь до страницы логина
+                .failureUrl("/login?error")
                 .defaultSuccessUrl("/", false)
-                .failureForwardUrl("/")
                 .permitAll()
                 .and()
                 .logout()

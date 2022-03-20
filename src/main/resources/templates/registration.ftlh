@@ -6,6 +6,7 @@
             <form action="/registration" method="post" class="login-form">
                 <input type="text" name="username" placeholder="Username"/>
                 <input type="password" name="password" placeholder="Password"/>
+                <input type="text" name="email" placeholder="Email"/>
                 <div><input type="password" name="password2" placeholder="Confirm password"/></div>
                 <input type="submit" value="Подтвердить" class="submit"/>
                 <a href="/login" class="registration">Войти</a>

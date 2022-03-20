@@ -25,10 +25,14 @@ body {
 
 a {
   color:           black;
-  text-decoration: none;
+  text-decoration: none !important;
 
   &:visited {
     color: #3c3c3c;
+  }
+
+  &:hover {
+    color: black !important;
   }
 }
 
@@ -40,6 +44,7 @@ a {
   width:       100%;
   display:     flex;
   align-items: center;
+  padding: 0 !important;
 
   .menu {
     margin-left:     50px;
@@ -200,6 +205,7 @@ a {
     padding:       7px;
 
     a, span {
+      color:                       #3c3c3c;
       -webkit-animation-name:      fadeInUp;
       animation-name:              fadeInUp;
       -webkit-animation-duration:  2s;
@@ -220,6 +226,7 @@ a {
   align-items:     center;
   justify-content: center;
   margin-bottom:   200px;
+  margin-top:      60px;
 
   .car-container {
     width:          80%;
@@ -281,6 +288,12 @@ a {
     margin-top:     5px;
     margin-bottom:  20px;
     letter-spacing: 2px;
+
+  }
+
+
+  .car-name {
+    text-transform: uppercase;
   }
 
   .button {
@@ -307,18 +320,19 @@ a {
   .supercar-button {
     color: #ae0000;
   }
-
-  .car-name {
-    text-transform: uppercase;
-  }
 }
 
-.card {
-  width:        380px;
-  height:       425px;
-  perspective:  500px;
-  margin-right: 25px;
-  margin-left:  25px;
+.cards {
+  width: 100%;
+
+  .card {
+    width:        32%;
+    height:       450px;
+    perspective:  500px;
+    margin-right: 25px;
+    margin-left:  25px;
+    border:       none !important;
+  }
 }
 
 .content {
@@ -473,10 +487,12 @@ a {
 
     .active {
       color: #ffa300 !important;
+      border-bottom: #ffa300 solid 2px !important;
     }
 
     .nav-link:hover {
       color: #ffa300 !important;
+      border-bottom: #ffa300 solid 2px !important;
     }
   }
 
