@@ -2,6 +2,7 @@ package com.example.CAR_RENT.entity;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 
 @Entity
 public class Application {
@@ -76,5 +77,13 @@ public class Application {
 
     public void setCar(Car car) {
         this.car = car;
+    }
+
+    //Метод возвращает разницу между текущим и начальным временем
+    public Long getDiff() {
+        if (ChronoUnit.MINUTES.between(startTime, LocalDateTime.now()) >= 60) {
+            return 60L;
+        }
+        return ChronoUnit.MINUTES.between(startTime, LocalDateTime.now());
     }
 }

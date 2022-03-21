@@ -8,6 +8,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface ApplicationRepo extends JpaRepository<Application, Long> {
+
+    List<Application> findAllByClient(User user);
+
     Application findAllByClientAndActive(User user, boolean active);
 
     Application findAllByCarAndActive(Car car, boolean active);

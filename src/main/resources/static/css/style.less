@@ -500,7 +500,121 @@ a {
     width:      60%;
     margin-top: 50px;
   }
+}
+
+//Страница профиля
+
+.profile-section {
+  margin-top:      80px;
+  width:           100%;
+  display:         flex;
+  justify-content: center;
+
+  .profile-container {
+
+    box-shadow:      0px 0px 21px -7px rgba(34, 60, 80, 0.2);
+    padding:         20px 0 20px 0;
+    border-radius:   5px;
+    width:           80%;
+    display:         flex;
+    align-items:     center;
+    justify-content: space-evenly;
+
+    .avatar {
+      img {
+        box-shadow:    0px 0px 21px -7px rgba(34, 60, 80, 0.2);
+        border-radius: 50%;
+      }
+    }
 
 
+    .personal-info {
+      display:         flex;
+      flex-direction:  column;
+      justify-content: center;
+      align-items:     center;
+
+      .name-surname {
+        font-size: 25px;
+      }
+
+      .username {
+        color: #3c3c3c;
+      }
+
+
+      .balance {
+        font-size:  19px;
+        margin-top: 40px;
+      }
+    }
+
+    .buttons {
+      margin-top: 30px;
+      display: flex;
+
+      button {
+        margin-right: 5px;
+        margin-left: 5px;
+        cursor:        pointer;
+        outline:       none;
+        border:        none;
+        height:        40px;
+        border-radius: 5px;
+        color:         #3c3c3c;
+        padding:       10px;
+
+        &:hover {
+          background: #3c3c3c;
+          color:      #ffa300;
+        }
+      }
+    }
+  }
+}
+
+.rent-section {
+  display:         flex;
+  justify-content: center;
+  margin-top:      100px;
+
+  .rents {
+    width: 50%;
+
+    .rent-item {
+      margin-bottom:   50px;
+      height:          200px;
+      display:         flex;
+      flex-direction:  column;
+      justify-content: space-between;
+      padding:         25px;
+      box-shadow:      0px 0px 21px -7px rgba(34, 60, 80, 0.2);
+      border-radius:   5px;
+
+      .progress {
+        height: 30px;
+
+        .progress-bar {
+          background: #ffa300;
+          color:      #3c3c3c;
+        }
+      }
+
+      button {
+        cursor:        pointer;
+        outline:       none;
+        border:        none;
+        height:        40px;
+        border-radius: 5px;
+        color:         #3c3c3c;
+        padding:       10px;
+
+        &:hover {
+          background: #3c3c3c;
+          color:      #ffa300;
+        }
+      }
+    }
+  }
 }
 

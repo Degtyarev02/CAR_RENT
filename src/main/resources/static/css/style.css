@@ -418,4 +418,96 @@ a:hover {
   width: 60%;
   margin-top: 50px;
 }
+.profile-section {
+  margin-top: 80px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.profile-section .profile-container {
+  box-shadow: 0px 0px 21px -7px rgba(34, 60, 80, 0.2);
+  padding: 20px 0 20px 0;
+  border-radius: 5px;
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.profile-section .profile-container .avatar img {
+  box-shadow: 0px 0px 21px -7px rgba(34, 60, 80, 0.2);
+  border-radius: 50%;
+}
+.profile-section .profile-container .personal-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.profile-section .profile-container .personal-info .name-surname {
+  font-size: 25px;
+}
+.profile-section .profile-container .personal-info .username {
+  color: #3c3c3c;
+}
+.profile-section .profile-container .personal-info .balance {
+  font-size: 19px;
+  margin-top: 40px;
+}
+.profile-section .profile-container .buttons {
+  margin-top: 30px;
+  display: flex;
+}
+.profile-section .profile-container .buttons button {
+  margin-right: 5px;
+  margin-left: 5px;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  height: 40px;
+  border-radius: 5px;
+  color: #3c3c3c;
+  padding: 10px;
+}
+.profile-section .profile-container .buttons button:hover {
+  background: #3c3c3c;
+  color: #ffa300;
+}
+.rent-section {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+}
+.rent-section .rents {
+  width: 50%;
+}
+.rent-section .rents .rent-item {
+  margin-bottom: 50px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 25px;
+  box-shadow: 0px 0px 21px -7px rgba(34, 60, 80, 0.2);
+  border-radius: 5px;
+}
+.rent-section .rents .rent-item .progress {
+  height: 30px;
+}
+.rent-section .rents .rent-item .progress .progress-bar {
+  background: #ffa300;
+  color: #3c3c3c;
+}
+.rent-section .rents .rent-item button {
+  cursor: pointer;
+  outline: none;
+  border: none;
+  height: 40px;
+  border-radius: 5px;
+  color: #3c3c3c;
+  padding: 10px;
+}
+.rent-section .rents .rent-item button:hover {
+  background: #3c3c3c;
+  color: #ffa300;
+}
 /*# sourceMappingURL=style.css.map */

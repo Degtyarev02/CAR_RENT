@@ -13,7 +13,9 @@
                 <span>${car.carName}</span>
                 <span>${car.priceForHour} руб/час</span>
                 <div class="buttons-container">
-                    <button>Арендовать</button>
+                    <form action="/rent/${car.id}" method="post">
+                        <button type="submit">Арендовать</button>
+                    </form>
                     <button>Оставить отзыв</button>
                 </div>
             </div>
