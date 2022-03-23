@@ -619,6 +619,43 @@ a {
   }
 }
 
+//Редактирование профиля
+
+.edit-container {
+  width:           100%;
+  height:          100vh;
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+
+  .profile-edit-form {
+    padding:         30px;
+    display:         flex;
+    flex-direction:  column;
+    align-items:     center;
+    justify-content: center;
+
+    input {
+      width:         290px;
+      height:        50px;
+      font-size:     15px;
+      border:        solid 2px #ffa300;
+      border-radius: 5px;
+      padding:       10px;
+      color:         #6d6d6d;
+      margin-bottom: 5px;
+
+      &:focus {
+        outline: none;
+      }
+
+      &::placeholder {
+        color: #6d6d6d;
+      }
+    }
+  }
+}
+
 //Модально окно для отзыва
 
 .review-modal {
@@ -747,6 +784,114 @@ a {
 
     &__dialog {
       transform: translateY(0);
+    }
+  }
+}
+
+//Адаптив
+
+@media (max-width: 576px) {
+
+  .navbar {
+    .menu {
+      margin: 0;
+    }
+  }
+
+  .init-container {
+    .init-form {
+      width: 98%;
+    }
+  }
+
+  .greeting-container {
+    .greeting-label {
+      width:     98%;
+      font-size: 25px;
+    }
+
+    .selector {
+      font-size:       12px;
+      width:           98%;
+      display:         flex;
+      justify-content: space-around;
+    }
+  }
+
+  .cards-container {
+    height: auto;
+
+    .car-container {
+      width: 98%;
+
+      .car-label {
+        margin:    10px;
+        font-size: 20px;
+      }
+
+      .cards {
+        flex-direction: column;
+        align-items:    center;
+        margin-top:     20px;
+
+        .card {
+          width:         97%;
+          margin-bottom: 20px;
+          margin-left:   0;
+          margin-right:  0;
+        }
+      }
+    }
+
+
+    .main-description {
+      width:     98%;
+      font-size: 18px;
+      margin:    32px 10px 0;
+    }
+  }
+
+  .main-car-container {
+
+  }
+
+  .main-car-block {
+    flex-direction: column;
+    align-items:    center;
+    width:          100%;
+
+    .car-pic {
+      margin-bottom: 20px;
+
+      img {
+        width: 311px;
+      }
+    }
+
+    .info-block {
+      margin-left: 0;
+
+      .buttons-container {
+        button {
+          margin: 10px 0 0;
+        }
+      }
+    }
+  }
+
+  .profile-section {
+    margin-top:  30px;
+    align-items: center;
+
+    .profile-container {
+      width:          98%;
+      flex-direction: column;
+    }
+  }
+
+  .rent-section {
+    .rents {
+      width: 98%;
     }
   }
 }

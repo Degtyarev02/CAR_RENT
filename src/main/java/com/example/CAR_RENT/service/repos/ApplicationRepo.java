@@ -11,6 +11,8 @@ public interface ApplicationRepo extends JpaRepository<Application, Long> {
 
     List<Application> findAllByClient(User user);
 
+    List<Application> findAllByActive(boolean active);
+
     Application findAllByClientAndActive(User user, boolean active);
 
     Application findAllByCarAndActive(Car car, boolean active);

@@ -92,6 +92,9 @@
     <script>
         const collection = document.getElementsByClassName("swiper-slide");
         var slides = collection.length > 1 ? 2 : 1;
+        slides = window.screen.width <= 576 ? 1 : slides
+        console.log(window.screen.width)
+        console.log(slides)
         let swiperSlider = new Swiper(".slider-reviews", {
             slidesPerView: slides,
             spaceBetween: 16,
