@@ -21,6 +21,14 @@ public class ReviewController {
     @Autowired
     ReviewsRepo reviewsRepo;
 
+    /**
+     * Метод для отправки отзывов на автомобиль
+     *
+     * @param car         автомобиль, для которого пишется отзыв
+     * @param currentUser автор отзыва
+     * @param reviewtext  текст отзыва
+     * @return редирект на страницу машины
+     */
     @PostMapping("/review/{car}")
     public String sendReview(@PathVariable Car car, @AuthenticationPrincipal User currentUser, String reviewtext) {
         Review review = new Review();
@@ -29,6 +37,6 @@ public class ReviewController {
         reviewsRepo.save(review);
         car.getReviews().add(review);
         carRepo.save(car);
-        return "redirect:/car/"+car.getId();
+        return "redirect:/car/" + car.getId();
     }
 }

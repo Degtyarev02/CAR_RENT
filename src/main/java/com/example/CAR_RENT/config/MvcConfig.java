@@ -5,9 +5,18 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+/**
+ * Класс для конфигурации доступа к статическим ресурсам
+ */
+
 @Configuration
 public class MvcConfig implements WebMvcConfigurer {
 
+    /**
+     * Метод необходим для spring security, указывает название темплейта для логина
+     *
+     * @param registry вьюконтроллер регистрации
+     */
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/login").setViewName("login");
     }

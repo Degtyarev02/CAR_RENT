@@ -19,6 +19,9 @@ import java.time.temporal.ChronoUnit;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * Контроллер для профиля пользователя
+ */
 @Controller
 @RequestMapping("/profile")
 public class ProfileController {
@@ -32,6 +35,14 @@ public class ProfileController {
     @Autowired
     CarRepo carRepo;
 
+
+    /**
+     * Метод, который возвращает вью для пользователя и одновременно проверяет активные аренды
+     *
+     * @param user  текущий пользователь
+     * @param model модель, для передачи данных на фронт
+     * @return возвращает страницу пользователя
+     */
     @GetMapping
     public String getProfile(@AuthenticationPrincipal User user, Model model) {
 
@@ -47,6 +58,7 @@ public class ProfileController {
                 carRepo.save(activeApp.getCar());
             }
         }
+        //В список кладем все аренды пользователя и разворачиваем список для отображения по убыванию даты
         List<Application> applicationList = applicationRepo.findAllByClient(user);
         Collections.reverse(applicationList);
         model.addAttribute("applications", applicationList);
@@ -69,8 +81,17 @@ public class ProfileController {
         return "redirect:/profile";
     }
 
+    /**
+     * Метод для добавления денег на счет
+     *
+     * @param currentUser текущий пользователь
+     * @param balance     баланс, который необходимо добавить
+     * @return редирект на профиль
+     */
     @PostMapping("/balance")
     public String balance(@AuthenticationPrincipal User currentUser, Integer balance) {
+
+        //Если баланс указан верно, то добавить пользователю на счет
         if (balance != null && balance > 0 && balance < 1000000) {
             currentUser.setBalance(currentUser.getBalance() + balance);
             userRepo.save(currentUser);

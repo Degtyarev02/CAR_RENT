@@ -36,6 +36,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder(8);
     }
 
+
+    /**
+     * Метод для конфигурации security, необходим чтобы задать права доступа для отдельных страниц.
+     * Так же устанавливает дефолтные пути для логина успешной/безуспешной авторизации
+     *
+     * @param http
+     * @throws Exception
+     */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http

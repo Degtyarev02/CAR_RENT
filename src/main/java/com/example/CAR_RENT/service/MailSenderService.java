@@ -17,7 +17,6 @@ public class MailSenderService {
     @Autowired
     public JavaMailSender javaMailSender;
 
-
     @Async
     public void send(String text, String to) throws MailException {
         SimpleMailMessage mail = new SimpleMailMessage();

@@ -14,6 +14,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import java.time.LocalDateTime;
 
+/**
+ * Контроллер для создания аренды
+ */
+
 @Controller
 public class RentController {
 
@@ -26,6 +30,13 @@ public class RentController {
     @Autowired
     UserRepo userRepo;
 
+    /**
+     * Метод создает новую аренду, проверяя дотаточно ли у пользователя денег на счету и не занята ли машина
+     *
+     * @param car  - машина, которую арендует пользователь
+     * @param user - пользователь
+     * @return редирект на страницу с машиной в случае безуспешной аренды, иначе редирект на профиль
+     */
     @PostMapping("/rent/{car}")
     public String rentCar(@PathVariable Car car, @AuthenticationPrincipal User user) {
         //Ищем, существует ли активная аренда с текущим пользователем
@@ -37,6 +48,7 @@ public class RentController {
                 if (user.getBalance() - car.getPriceForHour() < 0) {
                     return "redirect:/rent" + car.getId();
                 }
+                //Создаем новую аренду
                 application = new Application();
                 application.setActive(true);
                 application.setClient(user);
@@ -54,6 +66,13 @@ public class RentController {
         return "redirect:/profile";
     }
 
+    /**
+     * Метод для продления заявки, работает аналогично созданию заявки
+     *
+     * @param currentUser - пользователь
+     * @param application - заявка
+     * @return редирект на профиль
+     */
     @PostMapping("/rent/extend/{application}")
     public String extendApp(@AuthenticationPrincipal User currentUser, @PathVariable Application application) {
         if (application != null) {

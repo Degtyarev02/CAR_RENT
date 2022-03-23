@@ -11,6 +11,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+
+/**
+ * Контроллер главной страницы, отображает все доступные автомобили и каждый в отдельности
+ */
 @Controller
 public class MainController {
 
@@ -30,7 +34,7 @@ public class MainController {
     }
 
     @GetMapping("/car/{car}")
-    public String carView(@PathVariable Car car, @AuthenticationPrincipal User user, Model model){
+    public String carView(@PathVariable Car car, @AuthenticationPrincipal User user, Model model) {
         model.addAttribute("car", car);
         model.addAttribute("currentUser", user);
         return "carview";
