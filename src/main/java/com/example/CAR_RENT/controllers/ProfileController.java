@@ -10,6 +10,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -65,6 +66,15 @@ public class ProfileController {
         user.setFirstName(firstname);
         user.setLastName(lastname);
         userRepo.save(user);
+        return "redirect:/profile";
+    }
+
+    @PostMapping("/balance")
+    public String balance(@AuthenticationPrincipal User currentUser, Integer balance) {
+        if (balance != null && balance > 0 && balance < 1000000) {
+            currentUser.setBalance(currentUser.getBalance() + balance);
+            userRepo.save(currentUser);
+        }
         return "redirect:/profile";
     }
 

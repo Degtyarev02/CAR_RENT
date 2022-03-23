@@ -16,7 +16,7 @@
                     <form action="/rent/${car.id}" method="post">
                         <button type="submit">Арендовать</button>
                     </form>
-                    <button>Оставить отзыв</button>
+                    <button class="button js-modal-open" value="review-modal">Оставить отзыв</button>
                 </div>
             </div>
         </div>
@@ -67,37 +67,33 @@
                 </section>
             </div>
         </div>
-
     </section>
+
+    <div class="review-modal" id="review-modal">
+        <form method="post" action="/review/${car.id}" class="modal__dialog">
+            <div class="modal__dialog-header">
+                <button class="js-modal-close modal__dialog-header-close-btn">&times;</button>
+            </div>
+            <div class="modal__dialog-body">
+                <h2 class="review-greeting">Оставить отзыв</h2>
+                <div class="modal__dialog-body-inputs_fields">
+                    <textarea name="reviewtext" class="textarea" placeholder="Оставьте отзыв"></textarea>
+                </div>
+            </div>
+            <div class="modal__dialog-footer">
+                <button class="btn_close" type="submit">Подтвердить</button>
+            </div>
+        </form>
+    </div>
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
-        jQuery(function () {
-            let j = jQuery;
-            let addInput = '#qty';
-            let n = 1;
-            let startValue = 1050;
-            document.getElementById("price").textContent = startValue + " ₽";
-            j(addInput).val(n + ' шт.');
-
-            j('.plus').on('click', function () {
-                j(addInput).val(++n + ' шт.');
-                document.getElementById("price").textContent = startValue * n + " ₽";
-            })
-
-            j('.min').on('click', function () {
-                if (n > 0) {
-                    j(addInput).val(--n + ' шт.');
-                    document.getElementById("price").textContent = startValue * n + " ₽";
-                }
-            });
-        });
-
-
+        const collection = document.getElementsByClassName("swiper-slide");
+        var slides = collection.length > 1 ? 2 : 1;
         let swiperSlider = new Swiper(".slider-reviews", {
-            slidesPerView: 2,
+            slidesPerView: slides,
             spaceBetween: 16,
         });
     </script>

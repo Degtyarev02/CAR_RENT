@@ -17,7 +17,7 @@
                     <form action="/profile/edit" method="get">
                         <button type="submit">Редактировать</button>
                     </form>
-                    <button>Пополнить баланс</button>
+                    <button class="js-modal-open" value="balance_id">Пополнить баланс</button>
                 </div>
             </div>
         </div>
@@ -35,11 +35,30 @@
                              aria-valuemin="0" aria-valuemax="100">${app.getDiff()}/60 мин
                         </div>
                     </div>
-                    <button>Продлить на час</button>
+                    <form method="post" action="/rent/extend/${app.id}" class="modal__dialog">
+                        <button type="submit">Продлить на час</button>
+                    </form>
                 </div>
             <#else>
                 <span>Нет заявок на аренду</span>
             </#list>
         </div>
     </section>
+
+    <div class="review-modal" id="balance_id">
+        <form method="post" action="/profile/balance" class="modal__dialog">
+            <div class="modal__dialog-header">
+                <button class="js-modal-close modal__dialog-header-close-btn">&times;</button>
+            </div>
+            <div class="modal__dialog-body">
+                <h2 class="review-greeting">Пополнить баланс</h2>
+                <div class="modal__dialog-body-inputs_fields">
+                    <input type="text" name="balance" class="balance-input" placeholder="Пополнить баланс">
+                </div>
+            </div>
+            <div class="modal__dialog-footer">
+                <button class="btn_close" type="submit">Подтвердить</button>
+            </div>
+        </form>
+    </div>
 </@m.head_part>
