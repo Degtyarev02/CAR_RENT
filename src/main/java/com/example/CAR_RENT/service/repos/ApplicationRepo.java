@@ -6,6 +6,7 @@ import com.example.CAR_RENT.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import javax.transaction.Transactional;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Transactional
@@ -18,4 +19,6 @@ public interface ApplicationRepo extends JpaRepository<Application, Long> {
     Application findAllByClientAndActive(User user, boolean active);
 
     Application findAllByCarAndActive(Car car, boolean active);
+
+    List<Application> findAllByStartTimeBetween(LocalDateTime from, LocalDateTime to);
 }

@@ -15,6 +15,7 @@ public class Car {
     private boolean inRent;
     private Integer price;
     private String iconName;
+    private Integer numberOfRents;
 
     @OneToMany()
     @JoinColumn(name = "car_id")
@@ -82,6 +83,14 @@ public class Car {
 
     public void setIconName(String iconName) {
         this.iconName = iconName;
+    }
+
+    public Integer getNumberOfRents() {
+        return numberOfRents;
+    }
+
+    public void setNumberOfRents(Integer numberOfRents) {
+        this.numberOfRents = numberOfRents;
     }
 
     public List<Review> getReviews() {

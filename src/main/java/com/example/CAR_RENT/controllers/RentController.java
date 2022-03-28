@@ -57,6 +57,7 @@ public class RentController {
                 application.setTotalPrice(car.getPriceForHour());
                 application.setCar(car);
                 car.setInRent(true);
+                car.setNumberOfRents(car.getNumberOfRents()+1);
                 user.setBalance(user.getBalance() - car.getPriceForHour());
                 applicationRepo.save(application);
                 carRepo.save(car);
