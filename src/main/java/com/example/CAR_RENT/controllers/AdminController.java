@@ -1,18 +1,21 @@
 package com.example.CAR_RENT.controllers;
 
 import com.example.CAR_RENT.entity.Application;
+import com.example.CAR_RENT.entity.Car;
+import com.example.CAR_RENT.entity.Review;
 import com.example.CAR_RENT.entity.User;
 import com.example.CAR_RENT.service.repos.ApplicationRepo;
 import com.example.CAR_RENT.service.repos.CarRepo;
+import com.example.CAR_RENT.service.repos.ReviewsRepo;
 import com.example.CAR_RENT.service.repos.UserRepo;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.util.UriComponents;
+import org.springframework.web.util.UriComponentsBuilder;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -29,6 +32,9 @@ public class AdminController {
 
     @Autowired
     ApplicationRepo applicationRepo;
+
+    @Autowired
+    ReviewsRepo reviewsRepo;
 
     /**
      * Контроллер, который отвечает за панель администрации
@@ -68,5 +74,28 @@ public class AdminController {
         model.addAttribute("cars", carRepo.findAll());
         model.addAttribute("currentUser", currentUser);
         return "admin_page";
+    }
+
+    @PostMapping("/delete/{car}/{review}")
+    public String deleteReview(@PathVariable Review review, @RequestHeader(required = false) String referer, @PathVariable Car car) {
+        car.getReviews().remove(review);
+        review.setAuthor(null);
+        carRepo.save(car);
+        reviewsRepo.delete(review);
+        UriComponents components = UriComponentsBuilder.fromHttpUrl(referer).build();
+        return "redirect:" + components.getPath();
+    }
+
+    /**
+     * Метод, который меняет статус аккаунта пользователя
+     *
+     * @param user пользователь, которому необходимо включить или отключить аккаунт
+     * @return редирект на панель админа
+     */
+    @PostMapping("/activity/{user}")
+    public String changeUserAccountActivity(@PathVariable @NotNull User user) {
+        user.setActive(!user.isActive());
+        userRepo.save(user);
+        return "redirect:/admin/";
     }
 }

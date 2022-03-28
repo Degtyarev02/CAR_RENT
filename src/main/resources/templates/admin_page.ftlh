@@ -19,6 +19,17 @@
                             <span>${role}</span>
                         </#list>
                     </span>
+                    <span><#if us.isActive()>
+                            Аккаунт активен
+                        <#else> Аккаунт неактивен
+                        </#if>
+                    </span>
+                    <form action="/admin/activity/${us.id}" method="post">
+                        <button type="submit"><#if us.isActive()>
+                                Отключить
+                            <#else> Включить
+                            </#if></button>
+                    </form>
                 </div>
             <#else>
                 <span>No users</span>

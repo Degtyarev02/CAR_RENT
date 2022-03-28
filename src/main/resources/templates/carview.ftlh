@@ -57,6 +57,11 @@
                                         <div class="rev_footer">
                                             <p>${review.text}</p>
                                         </div>
+                                        <#if currentUser.isAdmin()>
+                                            <form action="/admin/delete/${car.id}/${review.id}" method="post">
+                                                <button type="submit">Удалить</button>
+                                            </form>
+                                        </#if>
                                     </div>
                                 <#else>
                                     <span>Пока что нет отзывов :(</span>
@@ -77,7 +82,7 @@
             <div class="modal__dialog-body">
                 <h2 class="review-greeting">Оставить отзыв</h2>
                 <div class="modal__dialog-body-inputs_fields">
-                    <textarea name="reviewtext" class="textarea" placeholder="Оставьте отзыв"></textarea>
+                    <textarea name="text" class="textarea" placeholder="Оставьте отзыв"></textarea>
                 </div>
             </div>
             <div class="modal__dialog-footer">

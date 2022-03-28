@@ -12,6 +12,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.validation.Valid;
+
 @Controller
 public class ReviewController {
 
@@ -26,13 +28,11 @@ public class ReviewController {
      *
      * @param car         автомобиль, для которого пишется отзыв
      * @param currentUser автор отзыва
-     * @param reviewtext  текст отзыва
+     * @param review      текст отзыва
      * @return редирект на страницу машины
      */
     @PostMapping("/review/{car}")
-    public String sendReview(@PathVariable Car car, @AuthenticationPrincipal User currentUser, String reviewtext) {
-        Review review = new Review();
-        review.setText(reviewtext);
+    public String sendReview(@PathVariable Car car, @AuthenticationPrincipal User currentUser, @Valid Review review) {
         review.setAuthor(currentUser);
         reviewsRepo.save(review);
         car.getReviews().add(review);
