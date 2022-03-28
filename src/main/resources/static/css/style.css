@@ -32,20 +32,19 @@ a:hover {
 }
 .navbar {
   background: rgba(255, 255, 255, 0);
-  box-shadow: 2px 12px 30px -17px rgba(34, 60, 80, 0.2);
   width: 100%;
   display: flex;
   align-items: center;
   padding: 0 !important;
 }
 .navbar .menu {
-  margin: 0;
   width: fit-content;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100px;
   list-style: none;
+  margin: 0 auto;
 }
 .navbar .menu li {
   margin-left: 15px;
@@ -182,13 +181,13 @@ a:hover {
 }
 .cards-container {
   width: 100%;
-  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   margin-bottom: 200px;
-  margin-top: 60px;
+  padding-top: 60px;
+  padding-bottom: 40px;
 }
 .cards-container .car-container {
   width: 80%;
@@ -216,10 +215,13 @@ a:hover {
 }
 .cards-container .main-description {
   text-align: center;
-  width: 50%;
+  width: 80%;
   font-size: 20px;
   letter-spacing: 1px;
-  margin-top: 72px;
+  margin-top: 110px;
+}
+.sport-container {
+  background: #f5f5f5;
 }
 .child-card {
   display: flex;
@@ -427,9 +429,9 @@ a:hover {
 }
 .profile-section .profile-container {
   box-shadow: 0px 0px 21px -7px rgba(34, 60, 80, 0.2);
-  padding: 20px 0 20px 0;
+  padding: 20px;
   border-radius: 5px;
-  width: 80%;
+  width: 50%;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -660,7 +662,10 @@ a:hover {
   align-items: center;
 }
 .admin-container .filter-users {
+  display: flex;
+  justify-content: center;
   margin-top: 20px;
+  margin-bottom: 50px;
 }
 .admin-container .filter-users input {
   width: 400px;
@@ -669,7 +674,6 @@ a:hover {
   border: solid 2px #3c3c3c;
   border-radius: 5px;
   padding: 10px;
-  margin-bottom: 5px;
 }
 .admin-container .filter-users button {
   height: 50px;
@@ -678,7 +682,6 @@ a:hover {
   border-radius: 5px;
   padding: 10px;
   background: white;
-  margin-bottom: 5px;
 }
 .admin-container .users-container {
   display: flex;
@@ -707,6 +710,9 @@ a:hover {
 @media (max-width: 576px) {
   .navbar .menu {
     margin: 0;
+  }
+  .navbar .menu li {
+    font-size: 12px;
   }
   .init-container .init-form {
     width: 98%;
@@ -743,7 +749,7 @@ a:hover {
     margin-right: 0;
   }
   .cards-container .main-description {
-    width: 98%;
+    width: 85%;
     font-size: 18px;
     margin: 32px 10px 0;
   }
@@ -774,6 +780,20 @@ a:hover {
   }
   .rent-section .rents {
     width: 98%;
+  }
+  .admin-container form {
+    display: flex;
+    width: 80%;
+  }
+  .admin-container .users-container {
+    flex-direction: column;
+  }
+  .admin-container .application-main-info {
+    padding-bottom: 30px;
+  }
+  .admin-container .application-main-info #myChart {
+    width: 80% !important;
+    height: 150px !important;
   }
 }
 /*# sourceMappingURL=style.css.map */

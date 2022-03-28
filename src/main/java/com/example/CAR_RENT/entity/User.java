@@ -9,6 +9,7 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Set;
 
 @Entity
@@ -170,5 +171,9 @@ public class User implements UserDetails {
     @Override
     public boolean isEnabled() {
         return active;
+    }
+
+    public Boolean isAdmin(){
+        return roles.contains(Role.ADMIN);
     }
 }

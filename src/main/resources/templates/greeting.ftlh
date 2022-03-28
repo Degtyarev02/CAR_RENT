@@ -53,7 +53,7 @@
         </div>
     </div>
 
-    <div class="cards-container">
+    <div class="cards-container sport-container">
         <div class="car-container" id="sc">
             <div class="car-label sportcar-label">
                 <span>Современные спорткары</span>

@@ -6,6 +6,7 @@ import com.example.CAR_RENT.service.repos.ApplicationRepo;
 import com.example.CAR_RENT.service.repos.CarRepo;
 import com.example.CAR_RENT.service.repos.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,11 +30,18 @@ public class AdminController {
     @Autowired
     ApplicationRepo applicationRepo;
 
-
-    //Написать комментарии!!!!
+    /**
+     * Контроллер, который отвечает за панель администрации
+     *
+     * @param model       модель, для передачи объектов во вью
+     * @param findingName параметр, который необходим для фильтрации пользователей
+     * @param currentUser текущий пользователь
+     * @return страница админа
+     */
     @GetMapping("/")
-    public String adminPage(Model model, @RequestParam(defaultValue = "") String findingName){
+    public String adminPage(Model model, @RequestParam(defaultValue = "") String findingName, @AuthenticationPrincipal User currentUser) {
         List<User> users;
+        //Если параметры не передавались, то найти всех пользователей
         if (findingName.equals("")) {
             users = userRepo.findAll();
             //Иначе найди пользователя по имени
@@ -41,18 +49,24 @@ public class AdminController {
             users = userRepo.findAllByUsername(findingName);
         }
         model.addAttribute("users", users);
+
+        //В модель добавляется автомобиль, с самым большим количеством аренд
         model.addAttribute("mostPopularCar", carRepo.findFirstByOrderByNumberOfRentsDesc());
+
+        //В модель добавляются все заявки за последнии пол года
         List<Application> allApplicationForAHalfOfYear =
                 applicationRepo.
-                findAllByStartTimeBetween(
-                        LocalDateTime.now().minusMonths(6),
-                        LocalDateTime.now());
+                        findAllByStartTimeBetween(
+                                LocalDateTime.now().minusMonths(6),
+                                LocalDateTime.now());
         model.addAttribute("allApplicationForAHalfOfYear", allApplicationForAHalfOfYear);
 
+        //Переменная, которая хранит в себе сумму денег по всем арендам за пол года
         Integer sumProfit = allApplicationForAHalfOfYear.stream().mapToInt(Application::getTotalPrice).sum();
 
         model.addAttribute("allSumForAHalfOfYear", sumProfit);
         model.addAttribute("cars", carRepo.findAll());
+        model.addAttribute("currentUser", currentUser);
         return "admin_page";
     }
 }

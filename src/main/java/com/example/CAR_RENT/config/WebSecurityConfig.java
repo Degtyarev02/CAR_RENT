@@ -50,6 +50,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable()//Отключаем поддержку csrf
                 .authorizeRequests() //Запрос на вход
                 .antMatchers("/registration", "/img/**", "/static/**", "/activate/**").permitAll() //Какие страницы могут быть доступны без авторизации
+                .antMatchers("/admin/**").hasAuthority("ADMIN")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin() //Форма логина

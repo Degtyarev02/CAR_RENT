@@ -26,17 +26,17 @@
         </div>
 
         <div class="application-main-info">
+            <span class="label">Основная статистика за пол года</span>
+            <span>Самая популярная машина: <a href="/car/${mostPopularCar.id}">${mostPopularCar.carName}</a></span>
+            <span>Количество аренд: ${allApplicationForAHalfOfYear?size}</span>
+            <span>Прибыль с аренд: ${allSumForAHalfOfYear}</span>
             <#list cars as car>
                 <div style="display: none">
                     <input class="car_name_plot" type="hidden" value="${car.carName}">
                     <input class="car_number_of_rents" type="hidden" value="${car.numberOfRents}">
                 </div>
             </#list>
-            <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
-            <span class="label">Основная статистика за пол года</span>
-            <span>Самая популярная машина: <a href="/car/${mostPopularCar.id}">${mostPopularCar.carName}</a></span>
-            <span>Количество аренд: ${allApplicationForAHalfOfYear?size}</span>
-            <span>Прибыль с аренд: ${allSumForAHalfOfYear}</span>
+            <canvas id="myChart" style="width:100%; max-width:600px; margin-top: 50px"></canvas>
         </div>
     </section>
 
@@ -61,6 +61,8 @@
                 }]
             },
             options: {
+                responsive: true,
+                barSpacing: 2,
                 legend: {display: false},
                 title: {
                     display: true,

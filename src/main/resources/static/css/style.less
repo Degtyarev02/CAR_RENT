@@ -40,20 +40,19 @@ a {
 //Навбар
 .navbar {
   background:  rgba(255, 255, 255, 0);
-  box-shadow:  2px 12px 30px -17px rgba(34, 60, 80, 0.2);
   width:       100%;
   display:     flex;
   align-items: center;
   padding:     0 !important;
 
   .menu {
-    margin:          0;
     width:           fit-content;
     display:         flex;
     justify-content: center;
     align-items:     center;
     height:          100px;
     list-style:      none;
+    margin:          0 auto;
 
     li {
       margin-left:  15px;
@@ -219,13 +218,13 @@ a {
 
 .cards-container {
   width:           100%;
-  height:          100vh;
   display:         flex;
   flex-direction:  column;
   align-items:     center;
   justify-content: center;
   margin-bottom:   200px;
-  margin-top:      60px;
+  padding-top:     60px;
+  padding-bottom:  40px;
 
   .car-container {
     width:          80%;
@@ -258,11 +257,15 @@ a {
 
   .main-description {
     text-align:     center;
-    width:          50%;
+    width:          80%;
     font-size:      20px;
     letter-spacing: 1px;
-    margin-top:     72px;
+    margin-top:     110px;
   }
+}
+
+.sport-container {
+  background: darken(#FFFFFF, 4%);
 }
 
 
@@ -514,9 +517,9 @@ a {
   .profile-container {
 
     box-shadow:      0px 0px 21px -7px rgba(34, 60, 80, 0.2);
-    padding:         20px 0 20px 0;
+    padding:         20px;
     border-radius:   5px;
-    width:           80%;
+    width:           50%;
     display:         flex;
     align-items:     center;
     justify-content: space-evenly;
@@ -797,7 +800,10 @@ a {
   align-items:    center;
 
   .filter-users {
-    margin-top: 20px;
+    display:         flex;
+    justify-content: center;
+    margin-top:      20px;
+    margin-bottom:   50px;
 
     input {
       width:         400px;
@@ -806,7 +812,6 @@ a {
       border:        solid 2px #3c3c3c;
       border-radius: 5px;
       padding:       10px;
-      margin-bottom: 5px;
     }
 
     button {
@@ -816,7 +821,6 @@ a {
       border-radius: 5px;
       padding:       10px;
       background:    white;
-      margin-bottom: 5px;
     }
   }
 
@@ -856,6 +860,10 @@ a {
   .navbar {
     .menu {
       margin: 0;
+
+      li {
+        font-size: 12px;
+      }
     }
   }
 
@@ -906,7 +914,7 @@ a {
 
 
     .main-description {
-      width:     98%;
+      width:     85%;
       font-size: 18px;
       margin:    32px 10px 0;
     }
@@ -955,5 +963,27 @@ a {
       width: 98%;
     }
   }
+
+  .admin-container {
+    form {
+      display: flex;
+      width:   80%;
+    }
+
+    .users-container {
+      flex-direction: column;
+    }
+
+    .application-main-info {
+      padding-bottom: 30px;
+
+      #myChart {
+        width:  80% !important;
+        height: 150px !important;
+      }
+    }
+  }
 }
+
+
 
