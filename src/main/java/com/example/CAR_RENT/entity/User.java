@@ -4,10 +4,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Set;
@@ -23,14 +20,17 @@ public class User implements UserDetails {
     private String firstName;
     private String lastName;
 
-    @Email(message = "Email should be valid")
-    @NotNull
+    @Email(message = "Неккоректный email")
+    @NotBlank(message = "Email не может быть пустым")
     @Column(unique = true)
     private String email;
 
-    @NotEmpty
-    @Size(max = 10, message = "Your username is too long")
+    @NotBlank(message = "Имя пользователя не может быть пустым")
+    @Size(max = 15, message = "Имя пользователя слишком длинное")
+    @Size(min = 3, message = "Имя пользователя слишком короткое")
     private String username;
+
+    @NotBlank(message = "Пароль не может быть пустым")
     private String password;
     private boolean active;
     private Integer currentbalance;
@@ -173,7 +173,7 @@ public class User implements UserDetails {
         return active;
     }
 
-    public Boolean isAdmin(){
+    public Boolean isAdmin() {
         return roles.contains(Role.ADMIN);
     }
 }

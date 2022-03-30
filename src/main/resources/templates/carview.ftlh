@@ -10,6 +10,11 @@
             </div>
 
             <div class="info-block">
+                <#if balanceError??>
+                    <div class="registration-error error">
+                        <span>${balanceError}</span>
+                    </div>
+                </#if>
                 <span>${car.carName}</span>
                 <span>${car.priceForHour} руб/час</span>
                 <div class="buttons-container">

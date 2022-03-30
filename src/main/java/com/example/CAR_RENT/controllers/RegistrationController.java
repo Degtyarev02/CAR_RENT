@@ -3,6 +3,7 @@ package com.example.CAR_RENT.controllers;
 
 import com.example.CAR_RENT.entity.Role;
 import com.example.CAR_RENT.entity.User;
+import com.example.CAR_RENT.service.ExceptionService;
 import com.example.CAR_RENT.service.MailSenderService;
 import com.example.CAR_RENT.service.repos.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,10 +11,12 @@ import org.springframework.context.annotation.Lazy;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.validation.Valid;
 import java.util.Collections;
 import java.util.UUID;
 
@@ -30,18 +33,27 @@ public class RegistrationController {
     @Lazy
     private PasswordEncoder passwordEncoder;
 
+    @Autowired
+    private ExceptionService exceptionService;
+
     @GetMapping("/registration")
     public String registration() {
         return "registration";
     }
 
     @PostMapping("/registration")
-    public String addUser(User user, Model model) {
+    public String addUser(@Valid User user, BindingResult bindingResult, Model model) {
 
         //Если пароль у пользователя существует и не равен паролю для подтверждения,
         //то добавляем в модель ошибку
         if (user.getPassword() != null && !user.getPassword().equals(user.getPassword2())) {
-            model.addAttribute("passwordEqualsError", "Passwords are not equals");
+            model.addAttribute("passwordEqualsError", "Пароли не совпадают");
+            return "registration";
+        }
+
+        //Собираем все ошибки и передаем в модель
+        if(bindingResult.hasErrors()){
+            exceptionService.getErrorsFromBindingResult(model, bindingResult);
             return "registration";
         }
 
@@ -49,7 +61,7 @@ public class RegistrationController {
         User userFromDB = userRepo.findByUsername(user.getUsername());
         //Если в бд такой пользователь существует, то выдаем сообщение об ошибке
         if (userFromDB != null) {
-            model.addAttribute("message", "User is already exist");
+            model.addAttribute("userExistException", "Пользователь с таким ником уже существует");
             return "registration";
         }
 

@@ -9,6 +9,7 @@ import com.example.CAR_RENT.service.repos.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -38,7 +39,7 @@ public class RentController {
      * @return редирект на страницу с машиной в случае безуспешной аренды, иначе редирект на профиль
      */
     @PostMapping("/rent/{car}")
-    public String rentCar(@PathVariable Car car, @AuthenticationPrincipal User user) {
+    public String rentCar(@PathVariable Car car, @AuthenticationPrincipal User user, Model model) {
         //Ищем, существует ли активная аренда с текущим пользователем
         Application application = applicationRepo.findAllByClientAndActive(user, true);
         if (application == null) {
@@ -46,7 +47,10 @@ public class RentController {
             if (!car.isInRent()) {
                 //Проверяем, есть ли у пользователя достаточно денег на счету
                 if (user.getBalance() - car.getPriceForHour() < 0) {
-                    return "redirect:/rent" + car.getId();
+                    model.addAttribute("car", car);
+                    model.addAttribute("currentUser", user);
+                    model.addAttribute("balanceError", "Недостаточно средств на счету");
+                    return "carview";
                 }
                 //Создаем новую аренду
                 application = new Application();

@@ -60,7 +60,7 @@
             </div>
             <div class="sportcar-cards cards">
                 <#list sportcar as sc>
-                    <div class="card">
+                    <div class="card sport-card">
                         <div class="content">
                             <div class="sportcar-front front">
                                 <img src="/static/img/${sc.iconName}.jpg" alt="" width="320" height="195">
