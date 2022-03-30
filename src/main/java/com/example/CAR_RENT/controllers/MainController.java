@@ -39,5 +39,4 @@ public class MainController {
         model.addAttribute("currentUser", user);
         return "carview";
     }
-
 }

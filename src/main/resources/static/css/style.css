@@ -827,6 +827,7 @@ a:hover {
     flex-direction: column;
     align-items: center;
     width: 100%;
+    margin-top: 0;
   }
   .main-car-block .car-pic {
     margin-bottom: 20px;
