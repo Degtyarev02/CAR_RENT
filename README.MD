@@ -26,78 +26,7 @@ public interface ApplicationRepo extends JpaRepository<Application, Long> {
 
 ```
 
-Основные таблицы приведены ниже
-
-```postgresql
-create table application
-(
-    id          bigint  not null
-        primary key,
-    active      boolean not null,
-    total_price integer,
-    car_id      bigint
-        constraint fkst8xgdau7igvp6og3ure9vwru
-            references car,
-    client_id   bigint
-        constraint fkio87oqddw52ei5k2tm4dv57qt
-            references main_user,
-    end_time    timestamp,
-    start_time  timestamp
-);
-
-alter table application
-    owner to postgres;
-
-create table car
-(
-    id          bigint  not null
-        primary key,
-    car_name    varchar(255),
-    category    text,
-    description text,
-    in_rent     boolean not null,
-    price       integer,
-    icon_name   varchar(255)
-);
-
-alter table car
-    owner to postgres;
-
-create table main_user
-(
-    id             bigint  not null
-        primary key,
-    password       varchar(255),
-    first_name     varchar(255),
-    last_name      varchar(255),
-    active         boolean not null,
-    username       varchar(255),
-    currentbalance integer
-);
-
-create table review
-(
-    id        bigint not null
-        primary key,
-    text      varchar(255),
-    author_id bigint
-        constraint fk4s8hhauku0pqs8yiabvbed216
-            references main_user,
-    car_id    bigint
-        constraint fkoie88l9xdqjv41ym8c1s7valq
-            references car
-);
-
-create table user_role
-(
-    user_id bigint not null
-        constraint user_fk
-            references main_user,
-    roles   varchar(255)
-);
-```
-
-В приложении так же настроен Scheduled сервис, который каждые 15 проверяет статус аренд на их актуальность
+В приложении настроен Scheduled сервис, который каждые 15 проверяет статус аренд на их актуальность
 
 ```java
 
@@ -132,5 +61,10 @@ public class ScheduledService {
 Клиентская часть написана на языке разметки freemarker (.ftlh). Страницы адаптированы под компьютеры и телефоны. Дизайн
 проектировался с максимальной понятностью и легковесностью.
 
+Ниже приведены скриншоты клиентской части
 
-
+![Login page](https://s1.hostingkartinok.com/uploads/images/2022/03/b49bb37b0436b7018764722c959eec83.png)
+![Main page](https://s1.hostingkartinok.com/uploads/images/2022/03/3e13d4fd905488078aa597db3115f8d3.png)
+![Main page](https://s1.hostingkartinok.com/uploads/images/2022/03/7eca2167e63988ccb47bde3717215f07.png)
+![Car page](https://s1.hostingkartinok.com/uploads/images/2022/03/29cdc79e7c40b112fa4dc3d7d9930d80.png)
+![Profile page](https://s1.hostingkartinok.com/uploads/images/2022/03/29cdc79e7c40b112fa4dc3d7d9930d80.png)
