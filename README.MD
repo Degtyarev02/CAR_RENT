@@ -67,4 +67,3 @@ public class ScheduledService {
 ![Main page](https://s1.hostingkartinok.com/uploads/images/2022/03/3e13d4fd905488078aa597db3115f8d3.png)
 ![Main page](https://s1.hostingkartinok.com/uploads/images/2022/03/7eca2167e63988ccb47bde3717215f07.png)
 ![Car page](https://s1.hostingkartinok.com/uploads/images/2022/03/29cdc79e7c40b112fa4dc3d7d9930d80.png)
-![Profile page](https://s1.hostingkartinok.com/uploads/images/2022/03/29cdc79e7c40b112fa4dc3d7d9930d80.png)
