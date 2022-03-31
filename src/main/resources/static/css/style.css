@@ -37,6 +37,15 @@ a:hover {
   align-items: center;
   padding: 0 !important;
 }
+.navbar .logo {
+  margin-left: 20px;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+}
+.navbar .logo span {
+  margin-left: 8px;
+}
 .navbar .menu {
   width: fit-content;
   display: flex;
@@ -74,6 +83,20 @@ a:hover {
 }
 .open-navbar {
   display: none;
+}
+.footer {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffa300;
+  color: #3c3c3c;
+}
+.footer .footer-info {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 .error {
   font-size: 16px;
@@ -476,6 +499,11 @@ a:hover {
   width: 60%;
   margin-top: 50px;
 }
+.container-height {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
 .profile-section {
   margin-top: 80px;
   width: 100%;
@@ -777,7 +805,31 @@ a:hover {
   font-size: 24px;
   font-weight: bold;
 }
+.description-container {
+  width: 100%;
+  align-items: center;
+  margin-top: 50px;
+}
+.description-container .main-description {
+  color: #3c3c3c;
+  width: 80%;
+}
+.description-container .contacts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 20px 0;
+  color: #3c3c3c;
+}
+.description-container .contacts a {
+  color: #3c3c3c !important;
+}
 @media (max-width: 576px) {
+  .navbar .logo {
+    display: none;
+  }
   .navbar .menu {
     margin: 0;
   }

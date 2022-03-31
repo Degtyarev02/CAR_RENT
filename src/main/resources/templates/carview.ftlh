@@ -1,5 +1,6 @@
 <#import "parts/main.ftlh" as m>
 <#import "parts/header.ftlh" as h>
+<#import "parts/footer.ftlh" as f>
 <@m.head_part>
     <@h.nav_bar></@h.nav_bar>
 
@@ -79,6 +80,8 @@
         </div>
     </section>
 
+    <@f.footer></@f.footer>
+
     <div class="review-modal" id="review-modal">
         <form method="post" action="/review/${car.id}" class="modal__dialog">
             <div class="modal__dialog-header">
@@ -100,6 +103,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
+        //Отображения отзывов в виде слайдера
         const collection = document.getElementsByClassName("swiper-slide");
         var slides = collection.length > 1 ? 2 : 1;
         slides = window.screen.width <= 576 ? 1 : slides

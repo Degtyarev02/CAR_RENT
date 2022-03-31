@@ -1,5 +1,6 @@
 <#import "parts/main.ftlh" as m>
 <#import "parts/header.ftlh" as h>
+<#import "parts/footer.ftlh" as f>
 <@m.head_part>
 
     <@h.nav_bar></@h.nav_bar>
@@ -126,7 +127,11 @@
             и самых дорогих суперкаров.
         </div>
     </div>
+
+    <@f.footer></@f.footer>
     <script>
+
+        //Скрипт для вращения карточек
         let content = document.getElementsByClassName('content')
         console.log(content)
 

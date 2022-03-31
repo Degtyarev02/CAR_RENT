@@ -48,6 +48,18 @@ a {
   align-items: center;
   padding:     0 !important;
 
+  .logo {
+    margin-left: 20px;
+    font-size:   20px;
+    display:     flex;
+    align-items: center;
+
+    span {
+      margin-left: 8px;
+
+    }
+  }
+
   .menu {
     width:           fit-content;
     display:         flex;
@@ -93,6 +105,23 @@ a {
 
 .open-navbar {
   display: none;
+}
+
+//Футер
+.footer {
+  width:           100%;
+  padding:         20px;
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  background:      @primary-color;
+  color:           @secondary-color;
+
+  .footer-info {
+    text-align:     center;
+    display:        flex;
+    flex-direction: column;
+  }
 }
 
 //Страница логина и регистрации
@@ -574,6 +603,11 @@ a {
 }
 
 //Страница профиля
+.container-height {
+  display:        flex;
+  flex-direction: column;
+  height:         100vh;
+}
 
 .profile-section {
   margin-top:      80px;
@@ -937,11 +971,43 @@ a {
   }
 }
 
+//Описание
+.description-container {
+  width:       100%;
+  align-items: center;
+  margin-top:  50px;
+
+  .main-description {
+
+    color: @secondary-color;
+    width: 80%;
+  }
+
+  .contacts {
+    display:         flex;
+    flex-direction:  column;
+    align-items:     center;
+    justify-content: center;
+    text-align:      center;
+    margin:          20px 0;
+    color:           @secondary-color;
+
+    a {
+      color: @secondary-color !important;
+    }
+  }
+}
+
 //Адаптив
 
 @media (max-width: 576px) {
 
   .navbar {
+
+    .logo {
+      display: none;
+    }
+
     .menu {
       margin: 0;
 
