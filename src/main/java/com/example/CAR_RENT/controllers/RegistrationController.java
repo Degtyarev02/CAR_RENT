@@ -65,11 +65,12 @@ public class RegistrationController {
         userService.saveNewUser(user);
 
         //Отправляем пользователю на почту ссылку на активацию
-        String message = String.format("Привет %s, перейди по ссылке чтобы активировать аккаунт\nhttp://localhost:8080/activate/%d/%s",
-                user.getUsername(),
+        String message = String.format("Привет %s, перейди по ссылке чтобы активировать аккаунт\n",
+                user.getUsername());
+        String href = String.format("http://localhost:8080/activate/%d/%s",
                 user.getId(),
                 user.getActivationCode());
-        mailSenderService.send(message, user.getEmail());
+        mailSenderService.send(message, href, user.getEmail());
 
         return "redirect:/login";
 
