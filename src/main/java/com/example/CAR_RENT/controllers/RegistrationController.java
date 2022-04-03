@@ -5,6 +5,7 @@ import com.example.CAR_RENT.entity.Role;
 import com.example.CAR_RENT.entity.User;
 import com.example.CAR_RENT.service.ExceptionService;
 import com.example.CAR_RENT.service.MailSenderService;
+import com.example.CAR_RENT.service.UserService;
 import com.example.CAR_RENT.service.repos.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
@@ -24,14 +25,10 @@ import java.util.UUID;
 public class RegistrationController {
 
     @Autowired
-    private UserRepo userRepo;
+    private UserService userService;
 
     @Autowired
     private MailSenderService mailSenderService;
-
-    @Autowired
-    @Lazy
-    private PasswordEncoder passwordEncoder;
 
     @Autowired
     private ExceptionService exceptionService;
@@ -52,50 +49,35 @@ public class RegistrationController {
         }
 
         //Собираем все ошибки и передаем в модель
-        if(bindingResult.hasErrors()){
+        if (bindingResult.hasErrors()) {
             exceptionService.getErrorsFromBindingResult(model, bindingResult);
             return "registration";
         }
 
         //Получаем пользователя из БД передавая имя нового пользователя
-        User userFromDB = userRepo.findByUsername(user.getUsername());
+        User userFromDB = userService.findByUsername(user.getUsername());
         //Если в бд такой пользователь существует, то выдаем сообщение об ошибке
         if (userFromDB != null) {
             model.addAttribute("userExistException", "Пользователь с таким ником уже существует");
             return "registration";
         }
 
-        //Создаем идентификационный номер для активации аккаунта
-        UUID activationCode = UUID.randomUUID();
-        //Аккаунту присваиваем статус неактивен (user расширяет userdetails,
-        //проверка на активность при входе происходит под капотом)
-        user.setActive(false);
-        user.setRoles(Collections.singleton(Role.USER));
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-        user.setBalance(0);
-        user.setActivationCode(activationCode.toString());
-        userRepo.save(user);
+        userService.saveNewUser(user);
 
         //Отправляем пользователю на почту ссылку на активацию
         String message = String.format("Привет %s, перейди по ссылке чтобы активировать аккаунт\nhttp://localhost:8080/activate/%d/%s",
                 user.getUsername(),
                 user.getId(),
-                activationCode);
+                user.getActivationCode());
         mailSenderService.send(message, user.getEmail());
 
         return "redirect:/login";
 
     }
 
-    //Метод для активации пользователя
     @GetMapping("/activate/{user}/{code}")
     public String validateUser(@PathVariable(name = "user") User user, @PathVariable(name = "code") String code) {
-        if (user.getActivationCode().equals(code)) {
-            //Если код пользователя равен коду в ссылке, то активируем пользователя и удаляем у него в бд код (на всякий случай)
-            user.setActive(true);
-            user.setActivationCode(null);
-            userRepo.save(user);
-        }
+        userService.saveValidateUser(user, code);
         return "login";
 
     }

@@ -58,7 +58,7 @@
                                     <div class="swiper-slide">
                                         <div class="rev_header">
                                             <img class="avatar" src="/static/img/bird.png" alt="">
-                                            <div class="rev_name">${review.author.firstName} ${review.author.lastName}</div>
+                                            <div class="rev_name">${review.author.firstName!""} ${review.author.lastName!""} @${review.author.username!""}</div>
                                         </div>
                                         <div class="rev_footer">
                                             <p>${review.text}</p>

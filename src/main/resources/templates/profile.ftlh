@@ -38,7 +38,7 @@
                                  aria-valuemin="0" aria-valuemax="100">${app.getDiff()}/60 мин
                             </div>
                         </div>
-                        <form method="post" action="/rent/extend/${app.id}" class="modal__dialog">
+                        <form method="post" action="/rent/${app.car.id}" class="modal__dialog">
                             <button type="submit">Продлить на час</button>
                         </form>
                     </div>

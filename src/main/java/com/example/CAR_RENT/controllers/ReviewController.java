@@ -3,6 +3,8 @@ package com.example.CAR_RENT.controllers;
 import com.example.CAR_RENT.entity.Car;
 import com.example.CAR_RENT.entity.Review;
 import com.example.CAR_RENT.entity.User;
+import com.example.CAR_RENT.service.CarService;
+import com.example.CAR_RENT.service.ReviewService;
 import com.example.CAR_RENT.service.repos.CarRepo;
 import com.example.CAR_RENT.service.repos.ReviewsRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,10 +20,10 @@ import javax.validation.Valid;
 public class ReviewController {
 
     @Autowired
-    CarRepo carRepo;
+    CarService carService;
 
     @Autowired
-    ReviewsRepo reviewsRepo;
+    ReviewService reviewService;
 
     /**
      * Метод для отправки отзывов на автомобиль
@@ -39,9 +41,9 @@ public class ReviewController {
 
         if (!bindingResult.hasErrors()) {
             review.setAuthor(currentUser);
-            reviewsRepo.save(review);
+            reviewService.save(review);
             car.getReviews().add(review);
-            carRepo.save(car);
+            carService.saveCar(car);
         }
         return "redirect:/car/" + car.getId();
     }

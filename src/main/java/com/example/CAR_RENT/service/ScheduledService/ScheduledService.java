@@ -1,7 +1,7 @@
 package com.example.CAR_RENT.service.ScheduledService;
 
+import com.example.CAR_RENT.service.ApplicationService;
 import com.example.CAR_RENT.entity.Application;
-import com.example.CAR_RENT.service.repos.ApplicationRepo;
 import com.example.CAR_RENT.service.repos.CarRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -15,7 +15,7 @@ import java.util.List;
 public class ScheduledService {
 
     @Autowired
-    ApplicationRepo applicationRepo;
+    ApplicationService applicationService;
 
     @Autowired
     CarRepo carRepo;
@@ -23,14 +23,11 @@ public class ScheduledService {
     @Scheduled(cron = "0 0/15 * * * *")
     public void checkRent() {
         System.out.println("Scheduled запущен...");
-        List<Application> applicationList = applicationRepo.findAllByActive(true);
+        List<Application> applicationList = applicationService.findAllByActive(true);
 
         for (Application application : applicationList) {
             if (ChronoUnit.MINUTES.between(application.getStartTime(), LocalDateTime.now()) >= 60) {
-                application.setActive(false);
-                application.getCar().setInRent(false);
-                applicationRepo.save(application);
-                carRepo.save(application.getCar());
+                applicationService.closeApplication(application);
                 System.out.println("Application " + application.getId() + " - закрыта");
             }
         }

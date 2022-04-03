@@ -95,6 +95,7 @@ a:hover {
   justify-content: center;
   background: #ffa300;
   color: #3c3c3c;
+  margin-top: auto;
 }
 .footer .footer-info {
   text-align: center;

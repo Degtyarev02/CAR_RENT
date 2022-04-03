@@ -3,7 +3,8 @@ package com.example.CAR_RENT.controllers;
 import com.example.CAR_RENT.entity.Application;
 import com.example.CAR_RENT.entity.Car;
 import com.example.CAR_RENT.entity.User;
-import com.example.CAR_RENT.service.repos.ApplicationRepo;
+import com.example.CAR_RENT.service.ApplicationService;
+import com.example.CAR_RENT.service.CarService;
 import com.example.CAR_RENT.service.repos.CarRepo;
 import com.example.CAR_RENT.service.repos.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,16 +24,13 @@ import java.time.LocalDateTime;
 public class RentController {
 
     @Autowired
-    ApplicationRepo applicationRepo;
-
-    @Autowired
-    CarRepo carRepo;
+    ApplicationService applicationService;
 
     @Autowired
     UserRepo userRepo;
 
     /**
-     * Метод создает новую аренду, проверяя дотаточно ли у пользователя денег на счету и не занята ли машина
+     * Метод создает новую аренду, (или проделвает текущую) проверяя дотаточно ли у пользователя денег на счету и не занята ли машина
      *
      * @param car  - машина, которую арендует пользователь
      * @param user - пользователь
@@ -41,7 +39,7 @@ public class RentController {
     @PostMapping("/rent/{car}")
     public String rentCar(@PathVariable Car car, @AuthenticationPrincipal User user, Model model) {
         //Ищем, существует ли активная аренда с текущим пользователем
-        Application application = applicationRepo.findAllByClientAndActive(user, true);
+        Application application = applicationService.findAllByClientAndActive(user, true);
         if (application == null) {
             //Проверяем, доступна ли арендуемая машина
             if (!car.isInRent()) {
@@ -53,40 +51,7 @@ public class RentController {
                     return "carview";
                 }
                 //Создаем новую аренду
-                application = new Application();
-                application.setActive(true);
-                application.setClient(user);
-                application.setStartTime(LocalDateTime.now());
-                application.setEndTime(LocalDateTime.now().plusHours(1));
-                application.setTotalPrice(car.getPriceForHour());
-                application.setCar(car);
-                car.setInRent(true);
-                car.setNumberOfRents(car.getNumberOfRents()+1);
-                user.setBalance(user.getBalance() - car.getPriceForHour());
-                applicationRepo.save(application);
-                carRepo.save(car);
-                userRepo.save(user);
-            }
-        }
-        return "redirect:/profile";
-    }
-
-    /**
-     * Метод для продления заявки, работает аналогично созданию заявки
-     *
-     * @param currentUser - пользователь
-     * @param application - заявка
-     * @return редирект на профиль
-     */
-    @PostMapping("/rent/extend/{application}")
-    public String extendApp(@AuthenticationPrincipal User currentUser, @PathVariable Application application) {
-        if (application != null) {
-            if (currentUser.getBalance() - application.getCar().getPriceForHour() >= 0) {
-                application.setStartTime(LocalDateTime.now());
-                application.setEndTime(LocalDateTime.now().plusHours(1));
-                currentUser.setBalance(currentUser.getBalance() - application.getCar().getPriceForHour());
-                userRepo.save(currentUser);
-                applicationRepo.save(application);
+                applicationService.saveNewApplication(application, user, car);
             }
         }
         return "redirect:/profile";

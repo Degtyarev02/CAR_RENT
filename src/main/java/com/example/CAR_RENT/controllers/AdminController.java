@@ -4,9 +4,10 @@ import com.example.CAR_RENT.entity.Application;
 import com.example.CAR_RENT.entity.Car;
 import com.example.CAR_RENT.entity.Review;
 import com.example.CAR_RENT.entity.User;
-import com.example.CAR_RENT.service.repos.ApplicationRepo;
-import com.example.CAR_RENT.service.repos.CarRepo;
-import com.example.CAR_RENT.service.repos.ReviewsRepo;
+import com.example.CAR_RENT.service.ApplicationService;
+import com.example.CAR_RENT.service.CarService;
+import com.example.CAR_RENT.service.ReviewService;
+import com.example.CAR_RENT.service.UserService;
 import com.example.CAR_RENT.service.repos.UserRepo;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,16 +26,16 @@ import java.util.List;
 public class AdminController {
 
     @Autowired
-    UserRepo userRepo;
+    UserService userService;
 
     @Autowired
-    CarRepo carRepo;
+    CarService carService;
 
     @Autowired
-    ApplicationRepo applicationRepo;
+    ApplicationService applicationService;
 
     @Autowired
-    ReviewsRepo reviewsRepo;
+    ReviewService reviewService;
 
     /**
      * Контроллер, который отвечает за панель администрации
@@ -49,19 +50,19 @@ public class AdminController {
         List<User> users;
         //Если параметры не передавались, то найти всех пользователей
         if (findingName.equals("")) {
-            users = userRepo.findAll();
+            users = userService.findAll();
             //Иначе найди пользователя по имени
         } else {
-            users = userRepo.findAllByUsername(findingName);
+            users = userService.findAllByUsername(findingName);
         }
         model.addAttribute("users", users);
 
         //В модель добавляется автомобиль, с самым большим количеством аренд
-        model.addAttribute("mostPopularCar", carRepo.findFirstByOrderByNumberOfRentsDesc());
+        model.addAttribute("mostPopularCar", carService.findFirstByOrderByNumberOfRentsDesc());
 
         //В модель добавляются все заявки за последнии пол года
         List<Application> allApplicationForAHalfOfYear =
-                applicationRepo.
+                applicationService.
                         findAllByStartTimeBetween(
                                 LocalDateTime.now().minusMonths(6),
                                 LocalDateTime.now());
@@ -71,31 +72,29 @@ public class AdminController {
         Integer sumProfit = allApplicationForAHalfOfYear.stream().mapToInt(Application::getTotalPrice).sum();
 
         model.addAttribute("allSumForAHalfOfYear", sumProfit);
-        model.addAttribute("cars", carRepo.findAll());
+        model.addAttribute("cars", carService.findAll());
         model.addAttribute("currentUser", currentUser);
         return "admin_page";
     }
 
+    /**
+     * Метод, который доступен только админу. Удаляет выбранный отзыв
+     *
+     * @param review  удадяемый отзыв
+     * @param referer ссылка, откуда был произведен запрос (необходима для редиректа)
+     * @param car     автомобиль, у которого удаляется отзыв
+     * @return редирект на страницу, откуда был произведен запрос
+     */
     @PostMapping("/delete/{car}/{review}")
     public String deleteReview(@PathVariable Review review, @RequestHeader(required = false) String referer, @PathVariable Car car) {
-        car.getReviews().remove(review);
-        review.setAuthor(null);
-        carRepo.save(car);
-        reviewsRepo.delete(review);
+        reviewService.removeReview(review, car);
         UriComponents components = UriComponentsBuilder.fromHttpUrl(referer).build();
         return "redirect:" + components.getPath();
     }
 
-    /**
-     * Метод, который меняет статус аккаунта пользователя
-     *
-     * @param user пользователь, которому необходимо включить или отключить аккаунт
-     * @return редирект на панель админа
-     */
     @PostMapping("/activity/{user}")
     public String changeUserAccountActivity(@PathVariable @NotNull User user) {
-        user.setActive(!user.isActive());
-        userRepo.save(user);
+        userService.changeActivity(user);
         return "redirect:/admin/";
     }
 }
