@@ -261,6 +261,7 @@ a:hover {
 .cards-container .car-container .cards {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   margin-top: 100px;
 }
 .cards-container .car-container .car-label {
@@ -335,7 +336,8 @@ a:hover {
   width: 100%;
 }
 .cards .card {
-  width: 32%;
+  width: 28%;
+  margin-bottom: 35px;
   height: 450px;
   perspective: 500px;
   margin-right: 25px;
