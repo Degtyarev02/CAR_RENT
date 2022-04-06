@@ -29,10 +29,10 @@
                         <span>${userExistException}</span>
                     </div>
                 </#if>
-                <input type="text" name="username" placeholder="Username"/>
+                <input type="text" name="username" placeholder="Имя пользователя"/>
                 <input type="text" name="email" placeholder="Email"/>
-                <input type="password" name="password" placeholder="Password"/>
-                <input type="password" name="password2" placeholder="Confirm password"/>
+                <input type="password" name="password" placeholder="Пароль"/>
+                <input type="password" name="password2" placeholder="Подтвердить пароль"/>
                 <div class="activate-message">
                     <span>
                         После успешной регистрации, на почту придет ссылка, для регистрации аккаунта

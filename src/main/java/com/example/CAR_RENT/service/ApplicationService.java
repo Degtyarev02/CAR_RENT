@@ -27,7 +27,7 @@ public class ApplicationService {
     UserService userService;
 
     public List<Application> findAllByStartTimeBetween(LocalDateTime minusMonths, LocalDateTime now) {
-        return findAllByStartTimeBetween(minusMonths, now);
+        return applicationRepo.findAllByStartTimeBetween(minusMonths, now);
     }
 
     public Application findAllByClientAndActive(User user, boolean b) {

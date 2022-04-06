@@ -9,11 +9,16 @@
                         <span>Неверное имя пользователя или пароль</span>
                     </div>
                 </#if>
-                <input type="text" name="username" placeholder="Username"/>
-                <input type="password" name="password" placeholder="Password"/>
-                <div class="remember-me">
-                    <input type="checkbox" id="remember-me" name="remember-me">
-                    <span>Запомнить меня</span>
+                <input type="text" name="username" placeholder="Имя пользователя"/>
+                <input type="password" name="password" placeholder="Пароль"/>
+                <div class="add-ons">
+                    <div class="remember-me">
+                        <input type="checkbox" id="remember-me" name="remember-me">
+                        <span>Запомнить меня</span>
+                    </div>
+                    <div class="restore-password">
+                        <a href="/restore">Забыли пароль?</a>
+                    </div>
                 </div>
                 <input type="submit" value="Войти" class="submit"/>
                 <a href="/registration" class="registration">Зарегистрироваться</a>

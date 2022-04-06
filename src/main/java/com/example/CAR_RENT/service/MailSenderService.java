@@ -39,11 +39,11 @@ public class MailSenderService {
     public JavaMailSender javaMailSender;
 
     @Async
-    public void send(String text, String href, String to) throws MailException {
+    public void send(String text, String href, String to, String subject) throws MailException {
         MimeMessage mimeMessage = javaMailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(mimeMessage);
         try {
-            helper.setSubject("Регистрация аккаунта DiamondRent");
+            helper.setSubject(subject);
             helper.setTo(to);
             helper.setFrom(EMAIL);
             String emailContent;
@@ -51,7 +51,7 @@ public class MailSenderService {
             Map<String, Object> model = new HashMap<>();
             model.put("message", text);
             model.put("href", href);
-            configuration.setDirectoryForTemplateLoading(new File("/home/vladimir/Downloads/CAR_RENT/src/main/resources/templates"));
+            configuration.setDirectoryForTemplateLoading(new File("src/main/resources/templates"));
             configuration.getTemplate("/mail_template.ftlh").process(model, stringWriter);
             emailContent = stringWriter.getBuffer().toString();
             helper.setText(emailContent, true);

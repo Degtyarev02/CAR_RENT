@@ -186,21 +186,30 @@ a:hover {
   background: rgba(118, 174, 255, 0.25);
   border-radius: 5px;
 }
-.init-container .login-form .remember-me {
+.init-container .login-form .add-ons {
+  width: 290px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.init-container .login-form .add-ons .remember-me {
   display: flex;
   align-items: center;
   padding: 10px 10px 10px 0;
-  width: 290px;
 }
-.init-container .login-form .remember-me input {
+.init-container .login-form .add-ons .remember-me input {
   width: auto;
   height: auto;
   margin: 0;
 }
-.init-container .login-form .remember-me span {
+.init-container .login-form .add-ons .remember-me span {
   font-size: 13px;
   letter-spacing: 0;
   margin-left: 10px;
+}
+.init-container .login-form .add-ons .restore-password {
+  font-size: 13px;
+  letter-spacing: 0;
 }
 .greeting-container {
   background: url("/static/img/tire1.jpg") center no-repeat;
@@ -602,36 +611,6 @@ a:hover {
   background: #3c3c3c;
   color: #ffa300;
 }
-.edit-container {
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.edit-container .profile-edit-form {
-  padding: 30px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-.edit-container .profile-edit-form input {
-  width: 290px;
-  height: 50px;
-  font-size: 15px;
-  border: solid 2px #ffa300;
-  border-radius: 5px;
-  padding: 10px;
-  color: #6d6d6d;
-  margin-bottom: 5px;
-}
-.edit-container .profile-edit-form input:focus {
-  outline: none;
-}
-.edit-container .profile-edit-form input::placeholder {
-  color: #6d6d6d;
-}
 .review-modal {
   display: flex;
   justify-content: center;
@@ -698,7 +677,7 @@ a:hover {
   outline: none;
   cursor: text;
 }
-.review-modal .modal__dialog-body .balance-input {
+.review-modal .modal__dialog-body .input {
   width: 290px;
   height: 50px;
   font-size: 15px;
@@ -708,11 +687,15 @@ a:hover {
   color: #6d6d6d;
   margin-bottom: 5px;
 }
-.review-modal .modal__dialog-body .balance-input:focus {
+.review-modal .modal__dialog-body .input:focus {
   outline: none;
 }
-.review-modal .modal__dialog-body .balance-input::placeholder {
+.review-modal .modal__dialog-body .input::placeholder {
   color: #6d6d6d;
+}
+.review-modal .modal__dialog-body-inputs_fields {
+  display: flex;
+  flex-direction: column;
 }
 .review-modal .modal__dialog-footer {
   display: flex;
@@ -776,6 +759,7 @@ a:hover {
   display: flex;
   width: 80%;
   justify-content: center;
+  flex-wrap: wrap;
 }
 .admin-container .users-container .user {
   display: flex;

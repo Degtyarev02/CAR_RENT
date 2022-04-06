@@ -1,7 +1,10 @@
 const CLASS_LIST_MODAL = {
     MODAL_REVIEW: 'review-modal',
+    MODAL_EDIT: 'edit-container',
     MODAL_ACTIVE_REVIEW: 'review-modal-active',
+    MODAL_ACTIVE_EDIT: 'edit-container-active',
     TRIGGER_OPEN_REVIEW: 'js-modal-open',
+    TRIGGER_OPEN_EDIT: 'js-modal-edit-open',
     TRIGGER_CLOSE: 'js-modal-close'
 };
 
@@ -20,8 +23,6 @@ document.addEventListener('click', (event) => {
         modal.classList.add(CLASS_LIST_MODAL.MODAL_ACTIVE_REVIEW);
 
     }
-
-
     //close
     if (event.target.closest(`.${CLASS_LIST_MODAL.TRIGGER_CLOSE}`) ||
         event.target.classList.contains(CLASS_LIST_MODAL.MODAL_ACTIVE_REVIEW)

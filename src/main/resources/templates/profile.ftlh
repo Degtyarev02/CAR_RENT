@@ -16,9 +16,7 @@
                         <span class="balance">Баланс: ${currentUser.balance}руб</span>
                     </div>
                     <div class="buttons">
-                        <form action="/profile/edit" method="get">
-                            <button type="submit">Редактировать</button>
-                        </form>
+                        <button class="js-modal-open" value="edit_id">Редактировать</button>
                         <button class="js-modal-open" value="balance_id">Пополнить баланс</button>
                     </div>
                 </div>
@@ -60,7 +58,28 @@
             <div class="modal__dialog-body">
                 <h2 class="review-greeting">Пополнить баланс</h2>
                 <div class="modal__dialog-body-inputs_fields">
-                    <input type="text" name="balance" class="balance-input" placeholder="Пополнить баланс">
+                    <input type="text" name="balance" class="input" placeholder="Пополнить баланс">
+                </div>
+            </div>
+            <div class="modal__dialog-footer">
+                <button class="btn_close" type="submit">Подтвердить</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="review-modal" id="edit_id">
+        <form method="post" action="/profile/edit" class="modal__dialog">
+            <div class="modal__dialog-header">
+                <button class="js-modal-close modal__dialog-header-close-btn">&times;</button>
+            </div>
+            <div class="modal__dialog-body">
+                <h2 class="review-greeting">Редактировать</h2>
+                <div class="modal__dialog-body-inputs_fields">
+                    <input class="input" type="text" name="firstname" placeholder="Имя"
+                           value="${currentUser.firstName!" "}"
+                    />
+                    <input class="input" type="text" name="lastname" placeholder="Фамилия"
+                           value="${currentUser.lastName!" "}"/>
                 </div>
             </div>
             <div class="modal__dialog-footer">
