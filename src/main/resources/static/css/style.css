@@ -399,7 +399,6 @@ a:hover {
   display: flex;
   height: fit-content;
   align-items: center;
-  width: 60%;
   justify-content: space-between;
 }
 .main-car-block .car-pic {
