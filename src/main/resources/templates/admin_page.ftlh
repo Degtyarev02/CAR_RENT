@@ -47,7 +47,7 @@
                     <input class="car_number_of_rents" type="hidden" value="${car.numberOfRents}">
                 </div>
             </#list>
-            <canvas id="myChart" style="width:100%; max-width:600px; margin-top: 50px"></canvas>
+            <canvas id="myChart" style="width:100%; margin-top: 50px"></canvas>
         </div>
     </section>
 
@@ -72,7 +72,7 @@
                 }]
             },
             options: {
-                responsive: true,
+                responsive: false,
                 barSpacing: 2,
                 legend: {display: false},
                 title: {
