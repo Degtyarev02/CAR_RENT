@@ -25,6 +25,7 @@ public class UserService implements UserDetailsService {
     @Autowired
     private UserRepo userRepo;
 
+    //Метод необходим для поиска и аутентификации пользователя при входе в аккаунт
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         return userRepo.findByUsername(username);
