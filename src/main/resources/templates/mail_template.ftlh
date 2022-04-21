@@ -3,6 +3,7 @@
 <html lang="en" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:v="urn:schemas-microsoft-com:vml">
 <head>
     <title></title>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;1,300&display=swap" rel="stylesheet">
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <!--[if mso]>
@@ -15,6 +16,7 @@
     <style>
         * {
             box-sizing: border-box;
+            font-family: 'Rubik', s;
         }
 
         body {
