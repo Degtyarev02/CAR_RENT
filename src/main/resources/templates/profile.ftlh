@@ -7,7 +7,7 @@
         <section class="profile-section">
             <div class="profile-container">
                 <div class="avatar">
-                    <img src="/static/img/bird.png" alt="" width="240" height="240">
+                    <img src="/static/img/racer.png" alt="" width="240" height="240">
                 </div>
                 <div class="main-info">
                     <div class="personal-info">

@@ -28,7 +28,7 @@ a:visited {
   color: #3c3c3c;
 }
 a:hover {
-  color: black !important;
+  color: #3c3c3c !important;
 }
 .navbar {
   background: rgba(255, 255, 255, 0);
@@ -79,10 +79,10 @@ a:hover {
 .navbar .logout button {
   padding: 5px 15px;
   border-radius: 25%;
-  color: #ffa300;
+  color: #3c3c3c;
   background: rgba(0, 0, 0, 0);
   cursor: pointer;
-  border: 2px solid #ffa300;
+  border: 2px solid #3c3c3c;
 }
 .open-navbar {
   display: none;
@@ -93,9 +93,9 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #ffa300;
   color: #3c3c3c;
   margin-top: auto;
+  box-shadow: 0px -5px 27px -27px rgba(34, 60, 80, 0.6);
 }
 .footer .footer-info {
   text-align: center;
@@ -118,7 +118,7 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: url("/static/img/background.png") center no-repeat;
+  background: url("/static/img/tire1.jpg") center no-repeat;
   background-size: cover;
 }
 .init-container .init-form {
@@ -128,6 +128,7 @@ a:hover {
   flex-direction: column;
   align-items: center;
   background: white;
+  box-shadow: 0px 0px 27px -6px rgba(0, 0, 0, 0.2);
   padding: 50px 0 50px 0;
   border-radius: 5px;
 }
@@ -212,7 +213,7 @@ a:hover {
   letter-spacing: 0;
 }
 .greeting-container {
-  background: url("/static/img/tire1.jpg") center no-repeat;
+  background: url("/static/img/aston_back.jpg") center no-repeat;
   background-size: cover;
   width: 100%;
   height: 100vh;
@@ -223,11 +224,13 @@ a:hover {
   box-shadow: 0 5px 41px -41px rgba(34, 60, 80, 0.6);
 }
 .greeting-container .greeting-label {
-  width: 50%;
+  width: 70%;
   height: fit-content;
-  margin-top: 10%;
+  margin-top: 20px;
+  font-weight: 300;
+  text-transform: uppercase;
   font-size: 50px;
-  color: #3c3c3c;
+  color: #8e8e8e;
   text-align: center;
   -webkit-animation-name: fadeInUp;
   animation-name: fadeInUp;
@@ -237,13 +240,13 @@ a:hover {
   animation-fill-mode: both;
 }
 .greeting-container .selector {
-  background: white;
   border-radius: 5px;
   padding: 7px;
 }
 .greeting-container .selector a,
 .greeting-container .selector span {
-  color: #3c3c3c;
+  color: #8e8e8e;
+  font-weight: 300;
   -webkit-animation-name: fadeInUp;
   animation-name: fadeInUp;
   -webkit-animation-duration: 2s;
@@ -266,6 +269,13 @@ a:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
+  /* .sportcar-label {
+      border-bottom: solid 2px #00ae0d;
+    }
+
+    .supercar-label {
+      border-bottom: solid 2px #ae0000;
+    }*/
 }
 .cards-container .car-container .cards {
   display: flex;
@@ -277,14 +287,8 @@ a:hover {
   margin: 35px;
   font-size: 50px;
   letter-spacing: 4px;
-  border-bottom: solid 2px #ffa300;
+  border-bottom: solid 2px #8e8e8e;
   color: #3c3c3c;
-}
-.cards-container .car-container .sportcar-label {
-  border-bottom: solid 2px #00ae0d;
-}
-.cards-container .car-container .supercar-label {
-  border-bottom: solid 2px #ae0000;
 }
 .cards-container .main-description {
   text-align: center;
@@ -304,7 +308,7 @@ a:hover {
   color: #3c3c3c;
   letter-spacing: 4px;
   margin-top: 45px;
-  padding: 7px;
+  padding: 8px;
 }
 .child-card .price {
   font-size: 15px;
@@ -368,8 +372,9 @@ a:hover {
   position: absolute;
   height: 100%;
   width: 100%;
-  background: linear-gradient(53deg, #ffa300 50%, #ffffff 50%);
-  border: #ffa300 solid 3px;
+  /*background:          linear-gradient(53deg, #ffa300 50%, #ffffff 50%);
+  border:              #ffa300 solid 3px;*/
+  box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
   text-align: center;
   font-size: 15px;
   border-radius: 5px;
@@ -378,13 +383,15 @@ a:hover {
 }
 .supercar-front,
 .supercar-back {
-  background: linear-gradient(53deg, #ae0000 50%, #ffffff 50%);
-  border: #ae0000 solid 3px;
+  /*
+    background: linear-gradient(53deg, #ae0000 50%, #ffffff 50%);
+    border:     #ae0000 solid 3px;*/
 }
 .sportcar-front,
 .sportcar-back {
-  background: linear-gradient(53deg, #00ae0d 50%, #ffffff 50%);
-  border: #00ae0d solid 3px;
+  /*
+    background: linear-gradient(53deg, #00ae0d 50%, #ffffff 50%);
+    border:     #00ae0d solid 3px;*/
 }
 .back {
   transform: rotateY(180deg);
