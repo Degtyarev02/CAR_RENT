@@ -1,4 +1,4 @@
-@primary-color:   #ffa300;
+@primary-color:   #335b4c;
 @secondary-color: #3c3c3c;
 @thirdry-color:   #8e8e8e;
 
@@ -187,7 +187,7 @@ a {
       width:         290px;
       height:        50px;
       font-size:     15px;
-      border:        solid 2px @primary-color;
+      border:        solid 1px @primary-color;
       border-radius: 5px;
       padding:       10px;
       color:         #6d6d6d;
@@ -277,7 +277,7 @@ a {
     margin-top:                  20px;
     font-weight:                 300;
     text-transform:              uppercase;
-    font-size:                   50px;
+    font-size:                   65px;
     color:                       @thirdry-color;
     text-align:                  center;
     -webkit-animation-name:      fadeInUp;
@@ -382,6 +382,7 @@ a {
     margin-top:     5px;
     margin-bottom:  20px;
     letter-spacing: 2px;
+    padding: 0 15px 0 15px;
 
   }
 
@@ -394,26 +395,26 @@ a {
     font-size:      16px;
     padding:        16px;
     border:         none;
-    background:     @secondary-color;
+    background:     @primary-color;
     border-radius:  5px;
-    color:          @primary-color;
+    color:          white;
     text-transform: uppercase;
     letter-spacing: 3px;
     cursor:         pointer;
     margin-top:     30px;
 
     &:hover {
-      background: darken(@secondary-color, 10%);
+      background: darken(@primary-color, 10%);
     }
   }
 
-  .sportcar-button {
+  /*.sportcar-button {
     color: #00ae0d;
   }
 
   .supercar-button {
     color: #ae0000;
-  }
+  }*/
 }
 
 .cards {
@@ -530,8 +531,8 @@ a {
         color:         @secondary-color;
 
         &:hover {
-          background: @secondary-color;
-          color:      @primary-color;
+          background: @primary-color;
+          color:      white;
         }
       }
     }
@@ -566,8 +567,8 @@ a {
       color:         @secondary-color;
 
       &:hover {
-        background: @secondary-color;
-        color:      @primary-color;
+        background: @primary-color;
+        color:      white;
       }
     }
   }
@@ -610,13 +611,13 @@ a {
     }
 
     .active {
-      color:         #ffa300 !important;
-      border-bottom: #ffa300 solid 2px !important;
+      color:         @primary-color !important;
+      border-bottom: @primary-color solid 2px !important;
     }
 
     .nav-link:hover {
-      color:         #ffa300 !important;
-      border-bottom: #ffa300 solid 2px !important;
+      color:         @primary-color !important;
+      border-bottom: @primary-color solid 2px !important;
     }
   }
 
@@ -694,8 +695,8 @@ a {
         padding:       10px;
 
         &:hover {
-          background: @secondary-color;
-          color:      @primary-color;
+          background: @primary-color;
+          color:      white;
         }
       }
     }
@@ -739,8 +740,8 @@ a {
         padding:       10px;
 
         &:hover {
-          background: @secondary-color;
-          color:      @primary-color;
+          background: @primary-color;
+          color:      white;
         }
       }
     }
@@ -861,7 +862,7 @@ a {
         padding:       8px 16px;
         font-size:     16px;
         line-height:   28px;
-        color:         @secondary-color;
+        color:         white;
         cursor:        pointer;
         background:    @primary-color;
         border:        none;
@@ -869,7 +870,7 @@ a {
         transition:    .2s;
 
         &:hover {
-          background: darken(#ffa300, 10%);
+          background: darken(@primary-color, 10%);
         }
       }
     }
@@ -928,7 +929,7 @@ a {
       display:        flex;
       flex-direction: column;
       width:          300px;
-      border:         #ffa300 2px solid;
+      border:         @primary-color 2px solid;
       border-radius:  5px;
       padding:        7px;
       margin:         5px;
@@ -945,8 +946,8 @@ a {
         color:         @secondary-color;
 
         &:hover {
-          background: @secondary-color;
-          color:      @primary-color;
+          background: @primary-color;
+          color:      white;
         }
       }
     }

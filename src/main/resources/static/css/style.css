@@ -71,7 +71,7 @@ a:hover {
   color: #3c3c3c;
 }
 .navbar .menu li a:hover {
-  color: #ffa300;
+  color: #335b4c;
 }
 .navbar .logout {
   margin-right: 20px;
@@ -154,7 +154,7 @@ a:hover {
   width: 290px;
   height: 50px;
   font-size: 15px;
-  border: solid 2px #ffa300;
+  border: solid 1px #335b4c;
   border-radius: 5px;
   padding: 10px;
   color: #6d6d6d;
@@ -167,7 +167,7 @@ a:hover {
   color: #6d6d6d;
 }
 .init-container .login-form .submit {
-  background: #ffa300;
+  background: #335b4c;
   color: white;
   cursor: pointer;
   margin-bottom: 10px;
@@ -175,7 +175,7 @@ a:hover {
 .init-container .login-form .submit:focus {
   border: none;
   outline: none;
-  background: #ffa300;
+  background: #335b4c;
 }
 .init-container .login-form .activate-message {
   width: 290px;
@@ -229,7 +229,7 @@ a:hover {
   margin-top: 20px;
   font-weight: 300;
   text-transform: uppercase;
-  font-size: 50px;
+  font-size: 65px;
   color: #8e8e8e;
   text-align: center;
   -webkit-animation-name: fadeInUp;
@@ -309,6 +309,13 @@ a:hover {
   letter-spacing: 4px;
   margin-top: 45px;
   padding: 8px;
+  /*.sportcar-button {
+    color: #00ae0d;
+  }
+
+  .supercar-button {
+    color: #ae0000;
+  }*/
 }
 .child-card .price {
   font-size: 15px;
@@ -320,6 +327,7 @@ a:hover {
   margin-top: 5px;
   margin-bottom: 20px;
   letter-spacing: 2px;
+  padding: 0 15px 0 15px;
 }
 .child-card .car-name {
   text-transform: uppercase;
@@ -328,22 +336,16 @@ a:hover {
   font-size: 16px;
   padding: 16px;
   border: none;
-  background: #3c3c3c;
+  background: #335b4c;
   border-radius: 5px;
-  color: #ffa300;
+  color: white;
   text-transform: uppercase;
   letter-spacing: 3px;
   cursor: pointer;
   margin-top: 30px;
 }
 .child-card .button:hover {
-  background: #232323;
-}
-.child-card .sportcar-button {
-  color: #00ae0d;
-}
-.child-card .supercar-button {
-  color: #ae0000;
+  background: #213a31;
 }
 .cards {
   width: 100%;
@@ -445,8 +447,8 @@ a:hover {
   color: #3c3c3c;
 }
 .main-car-block .info-block .buttons-container button:hover {
-  background: #3c3c3c;
-  color: #ffa300;
+  background: #335b4c;
+  color: white;
 }
 .reviews-container {
   display: flex;
@@ -458,7 +460,7 @@ a:hover {
 .swiper-slide {
   background: #e8e8e8;
   padding: 25px;
-  border-bottom: 2px solid #ffa300;
+  border-bottom: 2px solid #335b4c;
   border-radius: 5px;
 }
 .swiper-slide form button {
@@ -473,8 +475,8 @@ a:hover {
   color: #3c3c3c;
 }
 .swiper-slide form button:hover {
-  background: #3c3c3c;
-  color: #ffa300;
+  background: #335b4c;
+  color: white;
 }
 .rev_header {
   display: flex;
@@ -486,7 +488,7 @@ a:hover {
   height: 50px;
   border-radius: 50%;
   margin-right: 20px;
-  border: 2px solid #ffa300;
+  border: 2px solid #335b4c;
 }
 .review-and-description {
   display: flex;
@@ -509,12 +511,12 @@ a:hover {
   border: none !important;
 }
 .review-and-description .nav-tabs .active {
-  color: #ffa300 !important;
-  border-bottom: #ffa300 solid 2px !important;
+  color: #335b4c !important;
+  border-bottom: #335b4c solid 2px !important;
 }
 .review-and-description .nav-tabs .nav-link:hover {
-  color: #ffa300 !important;
-  border-bottom: #ffa300 solid 2px !important;
+  color: #335b4c !important;
+  border-bottom: #335b4c solid 2px !important;
 }
 .review-and-description .tab-content {
   width: 60%;
@@ -576,8 +578,8 @@ a:hover {
   padding: 10px;
 }
 .profile-section .profile-container .buttons button:hover {
-  background: #3c3c3c;
-  color: #ffa300;
+  background: #335b4c;
+  color: white;
 }
 .rent-section {
   display: flex;
@@ -601,7 +603,7 @@ a:hover {
   height: 30px;
 }
 .rent-section .rents .rent-item .progress .progress-bar {
-  background: #ffa300;
+  background: #335b4c;
   color: #3c3c3c;
 }
 .rent-section .rents .rent-item button {
@@ -614,8 +616,8 @@ a:hover {
   padding: 10px;
 }
 .rent-section .rents .rent-item button:hover {
-  background: #3c3c3c;
-  color: #ffa300;
+  background: #335b4c;
+  color: white;
 }
 .review-modal {
   display: flex;
@@ -650,7 +652,7 @@ a:hover {
 }
 .review-modal .modal__dialog-header-close-btn {
   font-size: 32px;
-  color: #ffa300;
+  color: #335b4c;
   background: #FFFFFF;
   border: none;
   position: absolute;
@@ -677,7 +679,7 @@ a:hover {
   width: 300px;
   height: 190px;
   resize: none;
-  border: 2px solid #ffa300;
+  border: 2px solid #335b4c;
   border-radius: 5px;
   padding: 5px;
   outline: none;
@@ -687,7 +689,7 @@ a:hover {
   width: 290px;
   height: 50px;
   font-size: 15px;
-  border: solid 2px #ffa300;
+  border: solid 2px #335b4c;
   border-radius: 5px;
   padding: 10px;
   color: #6d6d6d;
@@ -716,15 +718,15 @@ a:hover {
   padding: 8px 16px;
   font-size: 16px;
   line-height: 28px;
-  color: #3c3c3c;
+  color: white;
   cursor: pointer;
-  background: #ffa300;
+  background: #335b4c;
   border: none;
   border-radius: 5px;
   transition: 0.2s;
 }
 .review-modal .modal__dialog-footer .btn_close:hover {
-  background: #cc8200;
+  background: #213a31;
 }
 .review-modal-active {
   visibility: visible;
@@ -771,7 +773,7 @@ a:hover {
   display: flex;
   flex-direction: column;
   width: 300px;
-  border: #ffa300 2px solid;
+  border: #335b4c 2px solid;
   border-radius: 5px;
   padding: 7px;
   margin: 5px;
@@ -788,8 +790,8 @@ a:hover {
   color: #3c3c3c;
 }
 .admin-container .users-container .user button:hover {
-  background: #3c3c3c;
-  color: #ffa300;
+  background: #335b4c;
+  color: white;
 }
 .admin-container .application-main-info {
   display: flex;

@@ -60,7 +60,7 @@
                                     <#list car.reviews as review>
                                         <div class="swiper-slide">
                                             <div class="rev_header">
-                                                <img class="avatar" src="/static/img/bird.png" alt="">
+                                                <img class="avatar" src="/static/img/racer.png" alt="">
                                                 <div class="rev_name">${review.author.firstName!""} ${review.author.lastName!""}
                                                     @${review.author.username!""}</div>
                                             </div>
