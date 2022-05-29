@@ -62,6 +62,7 @@ public class ApplicationService {
         application.setEndTime(LocalDateTime.now().plusHours(1));
         application.setTotalPrice(car.getPriceForHour());
         application.setCar(car);
+        user.setNumberOfRents(user.getNumberOfRents()+1);
         car.setInRent(true);
         car.setNumberOfRents(car.getNumberOfRents() + 1);
         user.setBalance(user.getBalance() - car.getPriceForHour());

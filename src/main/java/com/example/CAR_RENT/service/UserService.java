@@ -41,6 +41,7 @@ public class UserService implements UserDetailsService {
         //Аккаунту присваиваем статус неактивен (user расширяет userdetails,
         //проверка на активность при входе происходит под капотом)
         user.setActive(false);
+        user.setNumberOfRents(0);
         user.setRoles(Collections.singleton(Role.USER));
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setBalance(0);

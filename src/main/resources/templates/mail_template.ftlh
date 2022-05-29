@@ -71,7 +71,7 @@
                     <td>
                         <table align="center" border="0" cellpadding="0" cellspacing="0" class="row-content stack"
                                role="presentation"
-                               style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #ffa300; color: #000000; width: 500px;"
+                               style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #335b4c; color: #ffffff; width: 500px;"
                                width="500">
                             <tbody>
                             <tr>
@@ -84,7 +84,7 @@
                                         <tr>
                                             <td>
                                                 <h2 style="margin: 0; color: #ffffff; direction: ltr; font-family: 'Roboto', Tahoma, Verdana, Segoe, sans-serif; font-size: 18px; font-weight: 700; letter-spacing: normal; line-height: 120%; text-align: left; margin-top: 0; margin-bottom: 0;">
-                                                    <span class="tinyMce-placeholder" style="color: #3c3c3c;">DiamondRent</span>
+                                                    <span class="tinyMce-placeholder" style="color: #ffffff;">DiamondRent</span>
                                                 </h2>
                                             </td>
                                         </tr>
@@ -109,7 +109,7 @@
                             <tbody>
                             <tr>
                                 <td class="column column-1"
-                                    style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; vertical-align: top; border-bottom: 0px solid #FFA300; border-left: 2px solid #FFA300; border-right: 2px solid #FFA300; border-top: 2px solid #FFA300; padding-top: 5px; padding-bottom: 5px;"
+                                    style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; vertical-align: top; border-bottom: 0px solid #335b4c; border-left: 2px solid #335b4c; border-right: 2px solid #335b4c; border-top: 2px solid #335b4c; padding-top: 5px; padding-bottom: 5px;"
                                     width="100%">
                                     <table border="0" cellpadding="10" cellspacing="0" class="paragraph_block"
                                            role="presentation"
@@ -141,7 +141,7 @@
                             <tbody>
                             <tr>
                                 <td class="column column-1"
-                                    style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; vertical-align: top; border-bottom: 0px solid #FFA300; border-left: 2px solid #FFA300; border-right: 2px solid #FFA300; border-top: 0px solid #FFA300; padding-top: 5px; padding-bottom: 5px;"
+                                    style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; vertical-align: top; border-bottom: 0px solid #335b4c; border-left: 2px solid #335b4c; border-right: 2px solid #335b4c; border-top: 0px solid #335b4c; padding-top: 5px; padding-bottom: 5px;"
                                     width="100%">
                                     <table border="0" cellpadding="10" cellspacing="0" class="paragraph_block"
                                            role="presentation"
@@ -175,7 +175,7 @@
                             <tbody>
                             <tr>
                                 <td class="column column-1"
-                                    style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; vertical-align: top; border-bottom: 0px solid #FFA300; border-left: 2px solid #FFA300; border-right: 2px solid #FFA300; border-top: 0px solid #FFA300; padding-top: 5px; padding-bottom: 5px;"
+                                    style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; vertical-align: top; border-bottom: 0px solid #335b4c; border-left: 2px solid #335b4c; border-right: 2px solid #335b4c; border-top: 0px solid #335b4c; padding-top: 5px; padding-bottom: 5px;"
                                     width="100%">
                                     <table border="0" cellpadding="10" cellspacing="0" class="divider_block"
                                            role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;"
@@ -217,7 +217,7 @@
                             <tbody>
                             <tr>
                                 <td class="column column-1"
-                                    style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; vertical-align: top; border-bottom: 2px solid #FFA300; border-left: 2px solid #FFA300; border-right: 2px solid #FFA300; border-top: 0px solid #FFA300; padding-top: 5px; padding-bottom: 5px;"
+                                    style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; vertical-align: top; border-bottom: 2px solid #335b4c; border-left: 2px solid #335b4c; border-right: 2px solid #335b4c; border-top: 0px solid #335b4c; padding-top: 5px; padding-bottom: 5px;"
                                     width="100%">
                                     <table border="0" cellpadding="10" cellspacing="0" class="paragraph_block"
                                            role="presentation"

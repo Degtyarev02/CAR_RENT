@@ -13,6 +13,16 @@
                     <div class="personal-info">
                         <span class="name-surname">${currentUser.firstName!""} ${currentUser.lastName!""}</span>
                         <span class="username">@${currentUser.username}</span>
+                        <div class="trophy_block">
+                            <#if currentUser.numberOfRents??>
+                                <#if currentUser.numberOfRents gte 5>
+                                    <img src="/static/img/silver_trophy.png" alt="" width="50" height="50" title="У вас уже более 5 аренд!">
+                                </#if>
+                                <#if currentUser.numberOfRents gte 10>
+                                    <img src="/static/img/golden_trophy.png" alt="" width="50" height="50" title="У вас уже более 10 аренд!">
+                                </#if>
+                            </#if>
+                        </div>
                         <span class="balance">Баланс: ${currentUser.balance}руб</span>
                     </div>
                     <div class="buttons">
@@ -31,7 +41,7 @@
                         <div class="progress">
                             <div class="progress-bar" role="progressbar"
                                  style="width: ${((app.getDiff()/60)*100)?round}%;
-                                         background: ${app.isActive()?then("#ffa300", "#ae0000")};"
+                                         background: ${app.isActive()?then("#22c22e", "#ae0000")};"
                                  aria-valuenow="25"
                                  aria-valuemin="0" aria-valuemax="100">${app.getDiff()}/60 мин
                             </div>

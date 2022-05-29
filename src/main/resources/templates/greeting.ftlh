@@ -28,7 +28,7 @@
                     <div class="card">
                         <div class="content">
                             <div class="front">
-                                <img src="/static/img/${am.iconName}.jpg" alt="" width="320" height="195">
+                                <img src="/static/img/${am.iconName}.jpg" alt="" width="350" height="210">
                                 <div class="child-card">
                                     <span class="car-name">${am.carName}</span>
                                     <span class="price">${am.priceForHour} руб/час</span>

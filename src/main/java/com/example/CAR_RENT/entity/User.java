@@ -48,6 +48,8 @@ public class User implements UserDetails {
     @Enumerated(EnumType.STRING)
     private Set<Role> roles;
 
+    private Integer numberOfRents;
+
 
     public User() {
     }
@@ -171,6 +173,14 @@ public class User implements UserDetails {
     @Override
     public boolean isEnabled() {
         return active;
+    }
+
+    public Integer getNumberOfRents() {
+        return numberOfRents;
+    }
+
+    public void setNumberOfRents(Integer numberOfRents) {
+        this.numberOfRents = numberOfRents;
     }
 
     public Boolean isAdmin() {
