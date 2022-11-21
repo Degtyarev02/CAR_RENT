@@ -38,7 +38,6 @@ public class ReviewController {
                              @AuthenticationPrincipal User currentUser,
                              @Valid Review review,
                              BindingResult bindingResult) {
-
         if (!bindingResult.hasErrors()) {
             review.setAuthor(currentUser);
             reviewService.save(review);
