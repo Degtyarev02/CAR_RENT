@@ -68,7 +68,7 @@
             <div class="modal__dialog-body">
                 <h2 class="review-greeting">Пополнить баланс</h2>
                 <div class="modal__dialog-body-inputs_fields">
-                    <input type="text" name="balance" class="input" placeholder="Пополнить баланс">
+                    <input type="number" name="balance" class="input" placeholder="Пополнить баланс">
                 </div>
             </div>
             <div class="modal__dialog-footer">
