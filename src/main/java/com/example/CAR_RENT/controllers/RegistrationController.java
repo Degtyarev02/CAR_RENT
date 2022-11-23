@@ -72,6 +72,9 @@ public class RegistrationController {
         String href = String.format("http://localhost:8080/activate/%d/%s",
                 user.getId(),
                 user.getActivationCode());
+        href += String.format("https://diamondcar.herokuapp.com/activate/%d/%s",
+                user.getId(),
+                user.getActivationCode());
         mailSenderService.send(message, href, user.getEmail(), "Регистрация аккаунта DiamondRent");
 
         return "redirect:/login";
